@@ -1,0 +1,165 @@
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  width: 100%;
+  height: 100vh; 
+  background-color: #F9F9F9;
+}
+
+/* ABA LOGIN */
+#div-aba-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1%;
+
+  width: 45%;
+  height: 100%;
+}
+
+#logo-royal-lux{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 125px;
+  height: 125px;
+
+  background-image: url("../../assets/images/RoyalLux-Logo.png");
+  background-position: center;
+  background-size: cover;
+}
+
+#form-login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 350px;
+  height: 500px;
+  border-radius: 15px;
+  background-color: #F9F9F9;
+}
+
+#div-title-login{
+  width: 85%;
+}
+#title-login{
+  align-self: flex-start;
+
+  background-color: transparent;
+  font-size: 27px;
+  font-family: inherit;
+  font-weight: 400;
+  color: black;
+}
+
+.input-form{
+  width: 85%;
+  height: 55px;
+
+  border-radius: 8px;
+  border: 1px solid #6A7179;
+
+  font-size: 1rem;
+  font-family: inherit;
+  padding-left: 15px;
+  background-color: transparent;
+  color: black;
+}
+.input-form::placeholder{
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.div-input-lembrar-senha{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 7px;
+
+  width: 85%;
+  height: 50px;
+
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-family: inherit;
+}
+input[type="checkbox"] {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#button-login{
+  width: 85%;
+  height: 50px;
+
+  border-radius: 8px;
+  border: 1px solid;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+}
+
+#div-buttons-links-auth{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 85%;
+  height: 55px;
+}
+
+.button-link-auth{
+  width: 50%;
+
+  background-color: transparent;  
+  border: none;
+  text-decoration: underline;
+  color: #0000FF;
+  cursor: pointer;
+}
+
+/* ABA IMAGEM */
+#div-aba-imagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  height: 100vh;
+  background: url("../../assets/images/backgrounds/freepik__the-style-is-candid-image-photography-with-natural__79139.jpeg") center/cover;
+  position: relative;
+}
+#div-aba-imagem::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(1px); 
+  z-index: 0; 
+}
+#logo-royal-lux-nome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 125px;
+  background-image: url("../../assets/images/RoyalLux-LogoNome.png");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1; 
+}
