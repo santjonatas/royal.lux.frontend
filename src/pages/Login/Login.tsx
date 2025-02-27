@@ -1,7 +1,12 @@
 import './Login.css'
 import { useEffect } from "react";
+import ButtonDefault from '../../components/buttons/ButtonDefault/ButtonDefault';
+import { useState } from "react";
+import InputDefault from '../../components/inputs/InputDefault/InputDefault';
 
 export default function Login() {
+
+    const [textoBotaoLogin] = useState("Login");
 
     useEffect(() => {
       document.title = "Login | Royal Lux";
@@ -17,16 +22,16 @@ export default function Login() {
               <h2 id="title-login">Realize o Login</h2>
             </div>
 
-            <input type="text" id="input-username" className="input-form" name="input-username" required placeholder="Username"/>
+            <InputDefault placeholder="Username" name="input-username" required></InputDefault>
 
-            <input type="password" id="input-password" className="input-form" name="input-password" required placeholder="Password"></input>
+            <InputDefault placeholder="Password" type="password" name="input-password" required></InputDefault>
 
             <div className="div-input-lembrar-senha">
               <input type="checkbox" id="checkbox-lembrar-senha" name="checkbox-lembrar-senha"/>
               <label htmlFor="lembrar-senha">Lembrar senha</label>
             </div>
 
-            <button type="submit" id="button-login">Login</button>
+            <ButtonDefault innerText={textoBotaoLogin}></ButtonDefault>
 
             <div id='div-buttons-links-auth'>
               <button id="button-esqueci-minha-senha" className="button-link-auth">Esqueci minha senha</button>

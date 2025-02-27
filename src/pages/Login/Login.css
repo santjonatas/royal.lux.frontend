@@ -60,25 +60,6 @@ main{
   color: black;
 }
 
-.input-form{
-  width: 85%;
-  height: 55px;
-
-  border-radius: 8px;
-  border: 1px solid #6A7179;
-
-  font-size: 1rem;
-  font-family: inherit;
-  padding-left: 15px;
-  background-color: transparent;
-  color: black;
-}
-.input-form::placeholder{
-  color: #1a1a1a;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
 .div-input-lembrar-senha{
   display: flex;
   justify-content: start;
@@ -98,19 +79,6 @@ input[type="checkbox"] {
   height: 15px;
   border: 1px solid #555;
   border-radius: 4px;
-  cursor: pointer;
-}
-
-#button-login{
-  width: 85%;
-  height: 50px;
-
-  border-radius: 8px;
-  border: 1px solid;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
 }
 
