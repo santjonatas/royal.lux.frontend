@@ -7,6 +7,8 @@ function App() {
     <Routes> {/* 🔹 Define um conjunto de rotas */}
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />  
+      
+      <Route path="/dashboard" element={<Login />} />  
     </Routes>
   );
 }
