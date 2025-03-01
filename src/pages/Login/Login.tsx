@@ -7,6 +7,10 @@ const API_URL = `http://${import.meta.env.VITE_API_URL}`;
 
 export default function Login() {
 
+    useEffect(() => {
+      document.title = "Login | Royal Lux";
+    }, []); 
+
     const [formDataLogin, setFormDataLogin] = useState({
       username: "",
       password: ""
@@ -48,12 +52,8 @@ export default function Login() {
       }
     };
 
-    useEffect(() => {
-      document.title = "Login | Royal Lux";
-    }, []); 
-
     return (
-      <main>
+      <main id="main-login">
         <div id="div-aba-login">
           <form onSubmit={handleSubmit} id="form-login">
             <article id="logo-royal-lux"></article>
