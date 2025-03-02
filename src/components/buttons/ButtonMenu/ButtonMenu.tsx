@@ -1,12 +1,3 @@
-
-// import './ButtonMenu.css'
-
-// export default function ButtonMenu(){
-
-//     return(
-//         <button id="button-menu-component"></button>
-//     );
-// }
 import './ButtonMenu.css';
 
 interface ButtonMenuProps {

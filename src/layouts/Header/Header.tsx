@@ -1,19 +1,5 @@
-// import ButtonBell from '../../components/buttons/ButtonBell/ButtonBell';
-// import ButtonMenu from '../../components/buttons/ButtonMenu/ButtonMenu';
-// import InputSearch from '../../components/inputs/InputSearch/InputSearch';
-// import './Header.css'
-
-// export default function Header(){
-    
-//     return(
-//         <header id="header-component">
-//             <ButtonMenu></ButtonMenu>
-//             <InputSearch></InputSearch>
-//             <ButtonBell></ButtonBell>
-//         </header>
-//     );
-// }
 import ButtonBell from '../../components/buttons/ButtonBell/ButtonBell';
+import ButtonLogout from '../../components/buttons/ButtonLogout/ButtonLogout';
 import ButtonMenu from '../../components/buttons/ButtonMenu/ButtonMenu';
 import InputSearch from '../../components/inputs/InputSearch/InputSearch';
 import './Header.css';
@@ -28,6 +14,7 @@ export default function Header({ toggleSidebar }: HeaderProps) {
             <ButtonMenu onClick={toggleSidebar} />
             <InputSearch />
             <ButtonBell />
+            <ButtonLogout></ButtonLogout>
         </header>
     );
 }
