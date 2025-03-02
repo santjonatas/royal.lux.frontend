@@ -1,0 +1,68 @@
+*{
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#button-profile-component{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+
+    width: 100%;
+    height: 75px;
+
+    border: none;
+    background-color: transparent;
+}
+
+.div-img-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 70px;
+    height: 70px;
+}
+.img-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 70%;
+    height: 70%;    
+
+    border-radius: 50%;
+    object-fit: contain;
+    object-position: center;
+}
+
+#div-info-perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 55%;
+    height: 100%;
+
+    color: black;
+}
+
+h4{
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#icon-verify{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 15px;
+    height: 100%;
+
+    background-image: url("../../../assets/images/icons/verified.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
