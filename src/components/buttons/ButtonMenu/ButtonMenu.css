@@ -1,0 +1,16 @@
+#button-menu-component{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 25px;
+    height: 25px;
+
+    border: none;
+    background-color: transparent;
+    background-image: url("../../../assets/images/icons/menu.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
