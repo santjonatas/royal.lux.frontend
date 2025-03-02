@@ -7,10 +7,9 @@ export default function ButtonProfile(){
     const profileImage = Profile;
     
     const [dataButtonProfile, setDataButtonProfile] = useState({
-        nome: "Nome User",
+        nome: "Nome Usuário",
         cargo: "Cargo"
-      });
-
+    });
     
     return(
         <button id="button-profile-component">

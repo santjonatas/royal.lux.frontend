@@ -13,6 +13,7 @@
 
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .div-img-profile{
@@ -42,7 +43,7 @@
     align-items: center;
     flex-direction: column;
 
-    width: 55%;
+    width: 54%;
     height: 100%;
 
     color: black;
