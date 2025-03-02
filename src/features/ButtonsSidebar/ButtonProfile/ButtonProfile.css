@@ -54,6 +54,14 @@ h4{
     font-weight: normal;
 }
 
+#div-info-perfil h3, 
+#div-info-perfil h4 {
+    white-space: nowrap;      
+    overflow: hidden;        
+    text-overflow: ellipsis;  
+    max-width: 100%;       
+}
+
 #icon-verify{
     display: flex;
     justify-content: center;
