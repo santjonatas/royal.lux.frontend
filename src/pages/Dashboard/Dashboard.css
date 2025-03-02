@@ -1,4 +1,4 @@
-#div-dashboard-page{
+#div-dashboard-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,29 +8,44 @@
     height: 100vh; 
 }
 
-#aba-sidebar{
+/* Sidebar ABERTO por padrão */
+#aba-sidebar {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    width: 25%;
+    width: 25%; /* Sidebar já aberto */
     height: 100vh; 
 
     background-color: blue;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
 }
 
-#aba-dashboard{
+/* Sidebar FECHADO */
+#aba-sidebar.closed {
+    width: 0; /* Quando fechado, some */
+}
+
+/* Dashboard padrão quando o sidebar está aberto */
+#aba-dashboard {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    width: 75%;
+    width: 75%; /* Ocupa 75% da tela quando o sidebar está aberto */
     height: 100vh; 
+    transition: width 0.3s ease-in-out;
 }
 
-#main-dashboard{
+/* Quando o sidebar está fechado, o dashboard ocupa 100% */
+#aba-sidebar.closed + #aba-dashboard {
+    width: 100%;
+}
+
+#main-dashboard {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,14 +56,6 @@
     background-color: #F2EDF3;
 }
 
-
-
-
-
-
-
-
-
-h1{
+h1 {
     color: black;
 }
