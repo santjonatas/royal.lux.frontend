@@ -7,10 +7,58 @@
     width: 100%;
     height: 100%;
     
-    background-color: red;
+    background-color: #F2EDF3;
 }
 
 #main-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 100%;
     height: 100%;
+
+    /* background-color: yellow; */
+}
+
+#section-user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2%;
+
+    width: 30%;
+    height: 100%;
+}
+
+#img-user-profile-default{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 270px;
+    height: 270px;
+    background-color: #F9F9F9;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: black 1px solid;
+}
+
+#titulo-nome-user{
+    color: black;
+}
+#titulo-cargo-username-user{
+    color: black;
+    font-weight: 400;
+}
+
+#section-info-user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 70%;
+    height: 100%;
+    background-color: blue;
 }

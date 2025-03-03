@@ -1,20 +1,29 @@
 import './ButtonProfile.css'
-import Profile from "../../../assets/images/icons/profile.png"
+import DefaultProfileImage from "../../../assets/images/icons/profile.png"
 import { useState } from 'react';
 
-export default function ButtonProfile(){
+interface ButtonProfileProps {
+    nome?: string;
+    cargo?: string;
+    imagem?: string;
+}
 
-    const profileImage = Profile;
-    
+export default function ButtonProfile({ 
+    nome = "Nome Usuário", 
+    cargo = "Cargo", 
+    imagem = DefaultProfileImage 
+    }: ButtonProfileProps) {
+
     const [dataButtonProfile, setDataButtonProfile] = useState({
-        nome: "Nome Usuário",
-        cargo: "Cargo"
+        nome,
+        cargo,
+        imagem
     });
-    
-    return(
+
+    return (
         <button id="button-profile-component">
             <div className="div-img-profile">
-                <img src={profileImage} alt="Perfil" className="img-profile"/>
+                <img src={dataButtonProfile.imagem} alt="Perfil" className="img-profile" />
             </div>
             <div id="div-info-perfil">
                 <h3>{dataButtonProfile.nome}</h3>

@@ -4,11 +4,12 @@ import Sidebar from '../../layouts/Sidebar/Sidebar';
 import './Dashboard.css';
 
 export default function Dashboard() {
-    const [sidebarOpen, setSidebarOpen] = useState(true); // Começa ABERTO
 
     useEffect(() => {
         document.title = "Dashboard | Royal Lux";
     }, []);
+
+    const [sidebarOpen, setSidebarOpen] = useState(true); // Começa ABERTO
 
     // Função para alternar o menu
     const toggleSidebar = () => {
