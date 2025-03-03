@@ -8,3 +8,13 @@
 
     background-color: #F9F9F9;
 }
+
+#div-space-header{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+
+    width: 70%;
+    height: 35px;
+}

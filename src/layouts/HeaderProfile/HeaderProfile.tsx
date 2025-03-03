@@ -7,6 +7,7 @@ export default function HeaderProfile() {
     return (
         <header id="header-profile-component">
             <ButtonBack></ButtonBack>
+            <div id="div-space-header"></div>
             <ButtonBell></ButtonBell>
             <ButtonLogout></ButtonLogout>
         </header>

@@ -12,8 +12,8 @@ export default function Header({ toggleSidebar }: HeaderProps) {
     return (
         <header id="header-component">
             <ButtonMenu onClick={toggleSidebar} />
-            <InputSearch />
-            <ButtonBell />
+            <InputSearch></InputSearch>
+            <ButtonBell></ButtonBell>
             <ButtonLogout></ButtonLogout>
         </header>
     );
