@@ -1,8 +1,8 @@
 import "./InputDefault.css";
 
 interface InputDefaultProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string; // Agora é opcional
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; // Opcional também
   placeholder: string;
   type?: string;
   name?: string;
@@ -10,22 +10,22 @@ interface InputDefaultProps {
 }
 
 export default function InputDefault({
-  value,
-  onChange,
+  value = "", // Valor padrão para evitar erro
+  onChange = () => {}, // Função padrão para evitar erro
   placeholder,
   type = "text",
   name = "",
   required = false,
-}: InputDefaultProps) {
-  return (
-    <input
-      value={value}
-      onChange={onChange} 
-      type={type}
-      className="input-form"
-      name={name}
-      placeholder={placeholder}
-      required={required}
-    />
-  );
+  }: InputDefaultProps) {
+    return (
+      <input
+        value={value}
+        onChange={onChange}
+        type={type}
+        className="input-form"
+        name={name}
+        placeholder={placeholder}
+        required={required}
+      />
+    );
 }

@@ -1,64 +1,94 @@
 #div-profile-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-    width: 100%;
-    height: 100%;
-    
-    background-color: #F2EDF3;
+  width: 100%;
+  min-height: 100vh; 
+  background-color: #F2EDF3;
 }
 
-#main-profile{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    height: 100%;
-
-    /* background-color: yellow; */
+#main-profile {
+  display: flex;
+  justify-content: center;
+  align-items: start; 
+  width: 100%;
+  padding: 20px; 
 }
 
-#section-user{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 2%;
+#section-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px; 
 
-    width: 30%;
-    height: 100%;
+  width: 30%;
+  padding: 20px; 
 }
 
-#img-user-profile-default{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 270px;
-    height: 270px;
-    background-color: #F9F9F9;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    border: black 1px solid;
+#img-user-profile-default {
+  width: 270px;
+  height: 270px;
+  background-color: #F9F9F9;
+  border-radius: 50%;
+  border: 1px solid black;
 }
 
-#titulo-nome-user{
-    color: black;
-}
-#titulo-cargo-username-user{
-    color: black;
-    font-weight: 400;
+#titulo-nome-user {
+  color: black;
+  font-size: 2em; 
 }
 
-#section-info-user{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#titulo-cargo-username-user {
+  color: black;
+  font-weight: 400;
+  font-size: 1.2em; 
+}
 
-    width: 70%;
-    height: 100%;
-    background-color: blue;
+#section-info-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  flex-grow: 1; 
+  background-color: #F2EDF3;
+}
+
+#form-edit-profile-user {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px; 
+  padding: 20px;
+  justify-items: start;
+  align-items: center;
+  color: black;
+
+  width: 95%;
+  min-height: 100%; 
+  border-radius: 15px;
+  background-color: #F9F9F9;
+}
+
+.label-forms {
+  grid-column: span 2;
+  text-align: center;
+  font-size: 23px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
