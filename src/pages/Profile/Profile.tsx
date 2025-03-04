@@ -42,8 +42,12 @@ export default function Profile({
                 </section>
                 <section id="section-info-user">
                     <form id="form-edit-profile-user" action="">
-                        <label className="label-forms">Informações Pessoais</label>
+                        <label className="label-forms">Usuário</label>
                         <InputDefault placeholder="Username" type="text" name="username"></InputDefault>
+                        <InputDefault placeholder="Password" type="password" name="password"></InputDefault>
+                        <InputDefault placeholder="Confirmar Password" type="password" name="confirm-password"></InputDefault>
+
+                        <label className="label-forms">Informações Pessoais</label>
                         <InputDefault placeholder="Nome" type="text" name="name"></InputDefault>
                         <InputDefault placeholder="Data de Nascimento" type="date" name="data-nascimento"></InputDefault>
                         <InputDefault placeholder="CPF" type="text" name="cpf"></InputDefault>
