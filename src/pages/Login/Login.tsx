@@ -16,18 +16,16 @@ export default function Login() {
       password: ""
     });
 
-    // Atualiza o estado quando o usuário digita
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { name, value } = e.target;
       setFormDataLogin((prev) => ({ ...prev, [name]: value }));
     };
 
-    // Envia os dados estruturados como JSON para o backend
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
     
       try {
-        const response = await fetch(`${API_URL}/auth/login`, {
+        const response = await fetch(`${API_URL}/api/auth/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formDataLogin),
@@ -42,9 +40,15 @@ export default function Login() {
           body: responseData,
         });
     
-        if (!response.ok) {
+        if (!response.status.toString().startsWith("2")) {
           return; 
         }
+
+        if (responseData?.data?.token) {
+          localStorage.setItem("authToken", responseData.token);
+          window.location.href = "/dashboard"; 
+        }
+
     
         console.log(responseData);
       } catch (error) {

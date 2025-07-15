@@ -3,17 +3,28 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Profile from "./pages/Profile/Profile";
+import PrivateRoute from "./pages/PrivateRoute";
 
 function App() {
   return (
-    <Routes> {/* 🔹 Define um conjunto de rotas */}
-      {/* ROTAS LIVRES */}
+    <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />  
 
-      {/* ROTAS PROTEGIDAS */}
-      <Route path="/dashboard" element={<Dashboard />} /> 
-      <Route path="/profile" element={<Profile />} />
+      <Route 
+        path="/dashboard" 
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        } 
+      /> 
+      <Route 
+        path="/profile" 
+        element={
+            <Profile />
+        } 
+      />
     </Routes>
   );
 }
