@@ -7,11 +7,16 @@ export default function Dashboard() {
 
     useEffect(() => {
         document.title = "Dashboard | Royal Lux";
+
+        const token = localStorage.getItem("authToken");
+
+        if (!token) {
+            window.location.href = "/login"; 
+        }
     }, []);
 
-    const [sidebarOpen, setSidebarOpen] = useState(true); // Começa ABERTO
+    const [sidebarOpen, setSidebarOpen] = useState(true); 
 
-    // Função para alternar o menu
     const toggleSidebar = () => {
         setSidebarOpen(prev => !prev);
     };

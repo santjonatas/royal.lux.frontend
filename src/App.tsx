@@ -22,7 +22,9 @@ function App() {
       <Route 
         path="/profile" 
         element={
+          <PrivateRoute>
             <Profile />
+          </PrivateRoute>
         } 
       />
     </Routes>

@@ -1,7 +1,7 @@
 import './Login.css'
 import { useEffect } from "react";
-import ButtonDefault from '../../components/buttons/ButtonDefault/ButtonDefault';
 import { useState } from "react";
+import ButtonDefault from '../../components/buttons/ButtonDefault/ButtonDefault';
 import InputDefault from '../../components/inputs/InputDefault/InputDefault';
 const API_URL = `http://${import.meta.env.VITE_API_URL}`;
 
@@ -45,11 +45,10 @@ export default function Login() {
         }
 
         if (responseData?.data?.token) {
-          localStorage.setItem("authToken", responseData.token);
+          localStorage.setItem("authToken", responseData.data.token);
           window.location.href = "/dashboard"; 
         }
 
-    
         console.log(responseData);
       } catch (error) {
         console.error(error);
