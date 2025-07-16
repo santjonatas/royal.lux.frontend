@@ -7,6 +7,7 @@ interface InputDefaultProps {
   type?: string;
   name?: string;
   required?: boolean;
+  disabled?: boolean;
 }
 
 export default function InputDefault({
@@ -16,6 +17,7 @@ export default function InputDefault({
   type = "text",
   name = "",
   required = false,
+  disabled = false,
   }: InputDefaultProps) {
     return (
       <input
@@ -26,6 +28,7 @@ export default function InputDefault({
         name={name}
         placeholder={placeholder}
         required={required}
+        disabled={disabled}
       />
     );
 }

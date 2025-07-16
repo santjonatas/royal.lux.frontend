@@ -1,11 +1,18 @@
-import './ButtonDefault.css'
+import './ButtonDefault.css';
 
-interface ButtonDefaultProps{
+interface ButtonDefaultProps {
     innerText: string;
+    disabled?: boolean;  
 }
 
-export default function({ innerText }: ButtonDefaultProps){
+export default function ButtonDefault({ innerText, disabled = false }: ButtonDefaultProps) {
     return (
-        <button type="submit" id="button-login">{innerText}</button>
+        <button 
+            type="submit" 
+            id="button-login"
+            disabled={disabled}  
+        >
+            {innerText}
+        </button>
     );
 }
