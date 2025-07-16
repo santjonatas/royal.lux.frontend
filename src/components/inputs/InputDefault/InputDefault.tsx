@@ -1,8 +1,8 @@
 import "./InputDefault.css";
 
 interface InputDefaultProps {
-  value?: string; // Agora é opcional
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; // Opcional também
+  value?: string; 
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; 
   placeholder: string;
   type?: string;
   name?: string;
@@ -10,8 +10,8 @@ interface InputDefaultProps {
 }
 
 export default function InputDefault({
-  value = "", // Valor padrão para evitar erro
-  onChange = () => {}, // Função padrão para evitar erro
+  value = "",
+  onChange = () => {}, 
   placeholder,
   type = "text",
   name = "",

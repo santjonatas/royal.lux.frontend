@@ -10,3 +10,12 @@
     background-color: #1a1a1a;
     cursor: pointer;
   }
+
+#button-login:hover {
+    background-color: #121212; 
+  }
+
+#button-login:active {
+    background-color: #0a0a0a; 
+    transform: translateY(1px); 
+  }

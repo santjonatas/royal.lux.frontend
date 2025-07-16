@@ -1,10 +1,8 @@
-.input-form{
+.input-form {
     width: 85%;
     height: 55px;
-  
     border-radius: 8px;
     border: 1px solid #6A7179;
-  
     font-size: 1rem;
     font-family: inherit;
     padding-left: 15px;
@@ -12,8 +10,17 @@
     color: black;
 }
 
-.input-form::placeholder{
-color: #1a1a1a;
-font-size: 1rem;
-font-family: inherit;
+.input-form:-webkit-autofill,
+.input-form:-webkit-autofill:hover,
+.input-form:-webkit-autofill:focus,
+.input-form:-webkit-autofill:active {
+    -webkit-text-fill-color: black !important; 
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important; 
+    transition: background-color 5000s ease-in-out 0s !important; 
+}
+
+.input-form::placeholder {
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-family: inherit;
 }
