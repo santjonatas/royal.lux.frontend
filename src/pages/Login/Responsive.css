@@ -1,0 +1,121 @@
+@media (max-width: 320px) {
+    #main-login {
+        flex-direction: column-reverse; 
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #div-aba-login {
+        width: 100%; 
+        height: auto; 
+        padding: 20px 0; 
+    }
+
+    #form-login {
+        width: 90%; 
+        height: 500px; 
+        margin: 20px 0; 
+    }
+
+    #div-aba-imagem {
+        width: 100%;
+        height: 0; 
+        background-size: cover; 
+    }
+
+    #logo-royal-lux-nome {
+        width: 80%;
+        height: 0; 
+        margin: 0 auto; 
+    }
+
+    #div-buttons-links-auth {
+        margin-bottom: 25px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+    #main-login {
+        flex-direction: column-reverse; 
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #div-aba-login {
+        width: 100%; 
+        height: auto; 
+        padding: 20px 0; 
+    }
+
+    #form-login {
+        width: 90%; 
+        height: 500px; 
+        margin: 20px 0; 
+    }
+
+    #div-aba-imagem {
+        width: 100%;
+        height: 0; 
+        background-size: cover; 
+    }
+
+    #logo-royal-lux-nome {
+        width: 80%;
+        height: 0; 
+        margin: 0 auto; 
+    }
+
+    #div-buttons-links-auth {
+        margin-bottom: 25px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    #main-login {
+        flex-direction: column-reverse; 
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #div-aba-login {
+        width: 100%; 
+        height: auto; 
+        padding: 20px 0; 
+    }
+
+    #form-login {
+        width: 70%; 
+        height: 500px; 
+        margin: 20px 0; 
+    }
+
+    #div-aba-imagem {
+        width: 100%;
+        height: 0; 
+        background-size: cover; 
+    }
+
+    #logo-royal-lux-nome {
+        width: 80%;
+        height: 0; 
+        margin: 0 auto; 
+    }
+
+    #div-buttons-links-auth {
+        margin-bottom: 25px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    
+}
+
+@media (min-width: 1201px) {
+}

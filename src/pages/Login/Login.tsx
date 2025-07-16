@@ -1,4 +1,5 @@
 import './Login.css'
+import './Responsive.css'
 import { useEffect } from "react";
 import { useState } from "react";
 import ButtonDefault from '../../components/buttons/ButtonDefault/ButtonDefault';

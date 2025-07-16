@@ -1,134 +1,169 @@
-#main-login{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+#main-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; 
 
-  width: 100%;
-  height: 100vh; 
-  background-color: #F9F9F9;
+    width: 100%;
+    height: 100vh; 
+    background-color: #F9F9F9; 
 }
 
-/* ABA LOGIN */
-#div-aba-login{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1%;
+#div-aba-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1%; 
 
-  width: 45%;
-  height: 100%;
+    width: 45%; 
+    height: 100%;
 }
 
-#logo-royal-lux{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#logo-royal-lux {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  width: 125px;
-  height: 125px;
+    width: 125px;
+    height: 125px;
 
-  background-image: url("../../assets/images/RoyalLux-Logo.png");
-  background-position: center;
-  background-size: cover;
+    background-image: url("../../assets/images/RoyalLux-Logo.png");
+    background-position: center;
+    background-size: cover; 
 }
 
-#form-login{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+#form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
 
-  width: 350px;
-  height: 500px;
-  border-radius: 15px;
-  background-color: #F9F9F9;
+    width: 350px;
+    height: 500px;
+    border-radius: 15px; 
+    background-color: #F9F9F9; 
 }
 
-#div-title-login{
-  width: 85%;
-}
-#title-login{
-  align-self: flex-start;
-
-  background-color: transparent;
-  font-size: 27px;
-  font-family: inherit;
-  font-weight: 400;
-  color: black;
+#div-title-login {
+    width: 85%; 
 }
 
-.div-input-lembrar-senha{
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 7px;
+#title-login {
+    align-self: flex-start; 
 
-  width: 85%;
-  height: 50px;
-
-  color: #1a1a1a;
-  font-size: 1rem;
-  font-family: inherit;
+    background-color: transparent;
+    font-size: 27px;
+    font-family: inherit; 
+    font-weight: 400;
+    color: black;
+    margin-bottom: 10px; 
 }
+
+.div-input-lembrar-senha {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 7px; 
+
+    width: 85%;
+    height: 50px;
+
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-family: inherit;
+    user-select: none; 
+    cursor: pointer; 
+}
+
 input[type="checkbox"] {
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #555;
-  border-radius: 4px;
-  cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none; 
+    width: 18px; 
+    height: 18px;
+    border: 2px solid #555; 
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative; 
+    display: inline-block; 
+    flex-shrink: 0; 
 }
 
-#div-buttons-links-auth{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 85%;
-  height: 55px;
+input[type="checkbox"]:checked {
+    background-color: #007bff;
+    border-color: #007bff;
 }
 
-.button-link-auth{
-  width: 50%;
-
-  background-color: transparent;  
-  border: none;
-  text-decoration: underline;
-  color: #0000FF;
-  cursor: pointer;
+input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
 
-/* ABA IMAGEM */
+#div-buttons-links-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px; 
+
+    width: 85%;
+    height: 55px;
+}
+
+.button-link-auth {
+    width: auto; 
+    padding: 0 10px; 
+
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    color: #0000FF; 
+    cursor: pointer;
+    font-size: 0.95rem; 
+    transition: color 0.2s ease-in-out; 
+}
+
+.button-link-auth:hover {
+    color: #0056b3; 
+}
+
 #div-aba-imagem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 55%;
-  height: 100vh;
-  background: url("../../assets/images/backgrounds/freepik__the-style-is-candid-image-photography-with-natural__79139.jpeg") center/cover;
-  position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%; 
+    height: 100vh;
+    background: url("../../assets/images/backgrounds/freepik__the-style-is-candid-image-photography-with-natural__79139.jpeg") center/cover no-repeat; /* Combined background properties */
+    position: relative;
+    overflow: hidden; 
 }
+
 #div-aba-imagem::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.1); 
-  backdrop-filter: blur(1px); 
-  z-index: 0; 
+    content: "";
+    position: absolute;
+    inset: 0; 
+    background: rgba(0, 0, 0, 0.15); 
+    backdrop-filter: blur(2px); 
+    z-index: 0; 
 }
+
 #logo-royal-lux-nome {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 125px;
-  background-image: url("../../assets/images/RoyalLux-LogoNome.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  position: relative;
-  z-index: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 125px;
+    background-image: url("../../assets/images/RoyalLux-LogoNome.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; 
+    position: relative;
+    z-index: 1; 
 }
