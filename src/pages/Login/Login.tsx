@@ -17,6 +17,8 @@ export default function Login() {
       password: ""
     });
 
+    const [error, setError] = useState<string | null>(null);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { name, value } = e.target;
       setFormDataLogin((prev) => ({ ...prev, [name]: value }));
@@ -24,6 +26,7 @@ export default function Login() {
 
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
+      setError(null);
     
       try {
         const response = await fetch(`${API_URL}/api/auth/login`, {
@@ -42,6 +45,8 @@ export default function Login() {
         });
     
         if (!response.status.toString().startsWith("2")) {
+          const errorMessage = responseData.message || "Erro desconhecido";
+          setError(errorMessage);
           return; 
         }
 
@@ -89,6 +94,14 @@ export default function Login() {
             </div>
 
             <ButtonDefault innerText="Login"></ButtonDefault>
+
+            <div id='div-error-message'>
+              {error && (
+                <div className="error-message">
+                  {error}
+                </div>
+              )}
+            </div>
 
             <div id='div-buttons-links-auth'>
               <button id="button-esqueci-minha-senha" className="button-link-auth">Esqueci minha senha</button>
