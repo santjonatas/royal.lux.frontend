@@ -1,0 +1,77 @@
+@media (max-width: 320px) {
+    #main-forgot-my-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-forgot-my-password{
+        width: 85%;
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+    #main-forgot-my-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-forgot-my-password{
+        width: 75%;
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    #main-forgot-my-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-forgot-my-password{
+        width: 65%;
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #main-forgot-my-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-forgot-my-password{
+        width: 55%;
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    #main-forgot-my-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-forgot-my-password{
+        width: 45%;
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 1201px) {
+    #main-forgot-my-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-forgot-my-password{
+        width: 35%;
+        margin: 20px 0;
+    }
+}

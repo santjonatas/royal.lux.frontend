@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import './ForgotMyPassword.css'
+import './Responsive.css'
 import InputDefault from "../../components/inputs/InputDefault/InputDefault";
 import ButtonDefault from "../../components/buttons/ButtonDefault/ButtonDefault";
 
