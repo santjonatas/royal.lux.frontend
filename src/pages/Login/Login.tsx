@@ -13,10 +13,11 @@ export default function Login() {
     }, []); 
 
     const [formDataLogin, setFormDataLogin] = useState({
-      username: "",
-      password: ""
+      username: localStorage.getItem("rememberedUsername") || "",
+      password: localStorage.getItem("rememberedPassword") || "",
     });
 
+    const [rememberMe, setRememberMe] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,39 +25,42 @@ export default function Login() {
       setFormDataLogin((prev) => ({ ...prev, [name]: value }));
     };
 
+    const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setRememberMe(e.target.checked);
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
-      setError(null);
-    
+
       try {
         const response = await fetch(`${API_URL}/api/auth/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formDataLogin),
         });
-    
-        const responseData = await response.json().catch(() => null);
-    
-        console.log({
-          status: response.status,
-          statusText: response.statusText,
-          headers: response.headers,
-          body: responseData,
-        });
-    
-        if (!response.status.toString().startsWith("2")) {
-          const errorMessage = responseData.message || "Erro desconhecido";
-          setError(errorMessage);
-          return; 
+
+        const responseData = await response.json();
+
+        if (!response.ok) {
+          setError(responseData.message || "Erro no login");
+          return;
         }
 
         if (responseData?.data?.token) {
           localStorage.setItem("authToken", responseData.data.token);
-          window.location.href = "/dashboard"; 
-        }
 
-        console.log(responseData);
+          if (rememberMe) {
+            localStorage.setItem("rememberedUsername", formDataLogin.username);
+            localStorage.setItem("rememberedPassword", formDataLogin.password);
+          } else {
+            localStorage.removeItem("rememberedUsername");
+            localStorage.removeItem("rememberedPassword");
+          }
+
+          window.location.href = "/dashboard";
+        }
       } catch (error) {
+        setError("Erro ao conectar ao servidor");
         console.error(error);
       }
     };
@@ -89,7 +93,13 @@ export default function Login() {
             </InputDefault>
 
             <div className="div-input-lembrar-senha">
-              <input type="checkbox" id="checkbox-lembrar-senha" name="checkbox-lembrar-senha"/>
+              <input
+                type="checkbox"
+                id="checkbox-lembrar-senha"
+                name="checkbox-lembrar-senha"
+                checked={rememberMe}
+                onChange={handleCheckboxChange}
+              />
               <label htmlFor="lembrar-senha">Lembrar senha</label>
             </div>
 
