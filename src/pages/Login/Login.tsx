@@ -47,7 +47,11 @@ export default function Login() {
         }
 
         if (responseData?.data?.token) {
+          const expirationMinutes = 60; 
+          const expirationTime = new Date().getTime() + expirationMinutes * 60 * 1000;
+
           localStorage.setItem("authToken", responseData.data.token);
+          localStorage.setItem("authTokenExpiration", expirationTime.toString());
 
           if (rememberMe) {
             localStorage.setItem("rememberedUsername", formDataLogin.username);
