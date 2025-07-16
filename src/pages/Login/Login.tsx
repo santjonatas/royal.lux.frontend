@@ -4,10 +4,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ButtonDefault from '../../components/buttons/ButtonDefault/ButtonDefault';
 import InputDefault from '../../components/inputs/InputDefault/InputDefault';
+import { useNavigate } from 'react-router-dom';
 const API_URL = `http://${import.meta.env.VITE_API_URL}`;
 
 export default function Login() {
-  
+    const navigate = useNavigate();
+
     useEffect(() => {
       document.title = "Login | Royal Lux";
     }, []); 
@@ -118,7 +120,13 @@ export default function Login() {
             </div>
 
             <div id='div-buttons-links-auth'>
-              <button id="button-esqueci-minha-senha" className="button-link-auth">Esqueci minha senha</button>
+              <button 
+                id="button-esqueci-minha-senha" 
+                className="button-link-auth"
+                onClick={() => navigate('/forgot-my-password')}
+              >
+                Esqueci minha senha
+              </button>
             </div>
           </form>
         </div>

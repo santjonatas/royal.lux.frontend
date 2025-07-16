@@ -7,6 +7,7 @@ import ButtonDefault from "../../components/buttons/ButtonDefault/ButtonDefault"
 const API_URL = `http://${import.meta.env.VITE_API_URL}`;
 
 export default function ForgotMyPassword() {
+    
     useEffect(() => {
         document.title = "Esqueci minha senha | Royal Lux";
     }, []);
