@@ -7,7 +7,7 @@ import InputDefault from '../../components/inputs/InputDefault/InputDefault';
 const API_URL = `http://${import.meta.env.VITE_API_URL}`;
 
 export default function Login() {
-
+  
     useEffect(() => {
       document.title = "Login | Royal Lux";
     }, []); 
