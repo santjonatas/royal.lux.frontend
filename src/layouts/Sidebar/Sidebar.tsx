@@ -32,7 +32,7 @@ export default function Sidebar({ setCurrentPage }: SidebarProps) {
             />
 
             <ButtonSidebarDefault
-                name="Cargos"
+                name="Funções"
                 pathImage={imageBadges}
                 onClick={() => setCurrentPage("roles")}
             />
