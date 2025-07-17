@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import './ForgotMyPassword.css'
 import './Responsive.css'
+import { useNavigate } from "react-router-dom";
 import InputDefault from "../../components/inputs/InputDefault/InputDefault";
 import ButtonDefault from "../../components/buttons/ButtonDefault/ButtonDefault";
 
 const API_URL = `http://${import.meta.env.VITE_API_URL}`;
 
 export default function ForgotMyPassword() {
+    const navigate = useNavigate();
     
     useEffect(() => {
         document.title = "Esqueci minha senha | Royal Lux";
@@ -48,7 +50,17 @@ export default function ForgotMyPassword() {
           return;
         }
 
+        const expirationTime = new Date().getTime() + 5 * 60 * 1000; 
+        localStorage.setItem('recoveryUsername', JSON.stringify({
+          value: formDataForgotMyPassword.username,
+          expiresAt: expirationTime
+        }));
+
         setSuccess("Código de recuperação enviado com sucesso!");
+
+        setTimeout(() => {
+          navigate("/reset-password");
+        }, 2000);
       } catch (error) {
         setError("Erro ao conectar ao servidor");
         console.error(error);

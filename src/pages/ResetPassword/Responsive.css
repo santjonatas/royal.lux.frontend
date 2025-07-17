@@ -1,0 +1,77 @@
+@media (max-width: 320px) {
+    #main-reset-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-reset-password{
+        width: 85%;
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+    #main-reset-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-reset-password{
+        width: 75%;
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    #main-reset-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-reset-password{
+        width: 65%;
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #main-reset-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-reset-password{
+        width: 55%;
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    #main-reset-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-reset-password{
+        width: 45%;
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 1201px) {
+    #main-reset-password{
+        height: auto; 
+        min-height: 100vh; 
+        overflow-y: visible; 
+    }
+
+    #form-reset-password{
+        width: 31%;
+        margin: 20px 0;
+    }
+}

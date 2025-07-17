@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Profile from "./pages/Profile/Profile";
 import PrivateRoute from "./pages/PrivateRoute";
 import ForgotMyPassword from "./pages/ForgotMyPassword/ForgotMyPassword";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />  
       <Route path="/forgot-my-password" element={<ForgotMyPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
 
       <Route 
         path="/dashboard" 

@@ -13,3 +13,18 @@ export function getValidAuthToken(): string | null {
 
   return token;
 }
+
+export function getValidRecoveryUsername() {
+  const stored = localStorage.getItem('recoveryUsername');
+  if (!stored) return null;
+
+  const { value, expiresAt } = JSON.parse(stored);
+  const now = new Date().getTime();
+
+  if (now > expiresAt) {
+    localStorage.removeItem('recoveryUsername');
+    return null;
+  }
+
+  return value;
+}
