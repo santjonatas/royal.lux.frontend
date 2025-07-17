@@ -8,14 +8,13 @@
     height: 100vh; 
 }
 
-/* Sidebar ABERTO por padrão */
 #aba-sidebar {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    width: 25%; /* Sidebar já aberto */
+    width: 25%; 
     height: 100vh; 
 
     background-color: blue;
@@ -23,24 +22,21 @@
     transition: width 0.3s ease-in-out;
 }
 
-/* Sidebar FECHADO */
 #aba-sidebar.closed {
-    width: 0; /* Quando fechado, some */
+    width: 0;
 }
 
-/* Dashboard padrão quando o sidebar está aberto */
 #aba-dashboard {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    width: 75%; /* Ocupa 75% da tela quando o sidebar está aberto */
+    width: 75%; 
     height: 100vh; 
     transition: width 0.3s ease-in-out;
 }
 
-/* Quando o sidebar está fechado, o dashboard ocupa 100% */
 #aba-sidebar.closed + #aba-dashboard {
     width: 100%;
 }
