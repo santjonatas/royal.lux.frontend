@@ -1,0 +1,63 @@
+#role-item{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 100%;
+    padding: 10px;
+
+    background-color: #F9F9F9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#section-checkbox-role-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 5%;
+    height: 35px;
+}
+
+#checkbox-role-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 85%;
+    gap: 10px;
+}
+
+.item-data {
+    white-space: nowrap;   
+    overflow: hidden;          
+    text-overflow: ellipsis;   
+    
+    text-align: start;
+    margin: 0;
+}
+
+#actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+    width: 5%;
+
+
+
+    background-color: red;
+}
+
+#actions button {
+    width: 45%;
+    height: 45px;
+}
