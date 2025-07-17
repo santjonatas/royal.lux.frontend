@@ -1,3 +1,4 @@
+import Pagination from '../../features/ButtonsFilters/Pagination/Pagination'
 import RoleFilter from '../../features/Role/RoleFilter/RoleFilter'
 import RoleHeader from '../../features/Role/RoleHeader/RoleHeader'
 import RoleItem from '../../features/Role/RoleItem/RoleItem'
@@ -10,11 +11,16 @@ export default function Roles() {
             <article id='roles-header'>
                 <h2>Funções</h2>
             </article>
-            <RoleFilter/>
-
-            <RoleHeader/>
-
-            <RoleItem/>
+            <section id='roles-filter'>
+                <RoleFilter/>
+                <RoleHeader/>
+            </section>
+            <div id='roles-content'>
+                <RoleItem/>
+            </div>
+            <div id='roles-pagination'>
+                <Pagination/>
+            </div>
         </main>
     )
 }

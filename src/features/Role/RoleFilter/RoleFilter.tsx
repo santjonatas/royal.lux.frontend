@@ -1,6 +1,6 @@
 import ButtonDefault from '../../../components/buttons/ButtonDefault/ButtonDefault'
 import InputDefault from '../../../components/inputs/InputDefault/InputDefault'
-import SelectBoxOrderFilter from '../../ButtonsSidebar/SelectBoxOrderFilter/SelectBoxOrderFilter'
+import SelectBoxOrderFilter from '../../ButtonsFilters/SelectBoxOrderFilter/SelectBoxOrderFilter'
 import './RoleFilter.css'
 
 export default function RoleFilter() {
@@ -13,8 +13,8 @@ export default function RoleFilter() {
                 <InputDefault value='' placeholder='Função'></InputDefault>
                 <InputDefault value='' placeholder='Detalhes'></InputDefault>
 
-                <InputDefault value='' placeholder='Quantidade por página'></InputDefault>
                 <SelectBoxOrderFilter></SelectBoxOrderFilter>
+                <InputDefault value='' placeholder='Quantidade'></InputDefault>
 
                 <ButtonDefault innerText='Buscar'></ButtonDefault>
             </section>

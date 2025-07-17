@@ -3,7 +3,7 @@
     justify-content: start;
     align-items: center;
 
-    width: 100%;
+    width: 99%;
     height: 70px;
     padding: 10px;
 
@@ -61,4 +61,12 @@
 #actions-filter button:nth-child(2) {
     background-color: #dc143c;
     color: white;
+}
+
+#filters input:nth-child(1) {
+    width: 9%;
+}
+
+#filters input:nth-child(5) {
+    width: 13%;
 }
