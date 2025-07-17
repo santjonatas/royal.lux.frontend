@@ -1,4 +1,4 @@
-import RoleFilter from '../../features/ButtonsSidebar/RoleFilter/RoleFilter'
+import RoleFilter from '../../features/Role/RoleFilter/RoleFilter'
 import './Roles.css'
 
 export default function Roles() {

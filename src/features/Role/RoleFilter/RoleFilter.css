@@ -21,7 +21,7 @@
     background-image: url('../../../assets/images/icons/filter.png');
     background-repeat: no-repeat;
     background-size: contain;
-    background-size: 50%;
+    background-size: 35%;
     background-position: center;
 }
 
@@ -35,7 +35,7 @@
 }
 
 #filters input {
-    width: 15%;
+    width: 20%;
     height: 45px;
 }
 
