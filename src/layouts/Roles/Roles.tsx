@@ -1,4 +1,5 @@
 import RoleFilter from '../../features/Role/RoleFilter/RoleFilter'
+import RoleHeader from '../../features/Role/RoleHeader/RoleHeader'
 import RoleItem from '../../features/Role/RoleItem/RoleItem'
 import './Roles.css'
 
@@ -10,6 +11,8 @@ export default function Roles() {
                 <h2>Funções</h2>
             </article>
             <RoleFilter/>
+
+            <RoleHeader/>
 
             <RoleItem/>
         </main>
