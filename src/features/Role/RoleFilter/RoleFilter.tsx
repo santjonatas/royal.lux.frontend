@@ -13,7 +13,7 @@ export default function RoleFilter() {
                 <InputDefault value='' placeholder='Detalhes'></InputDefault>
                 <ButtonDefault innerText='Buscar'></ButtonDefault>
             </section>
-            <section id='actions'>
+            <section id='actions-filter'>
                 <ButtonDefault innerText='Adicionar'/>
                 <ButtonDefault innerText='Deletar'/>
             </section>

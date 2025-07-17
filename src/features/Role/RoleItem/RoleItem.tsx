@@ -1,3 +1,4 @@
+import ButtonEdit from '../../../components/buttons/EditButton/ButtonEdit'
 import './RoleItem.css'
 
 export default function RoleItem() {
@@ -20,7 +21,8 @@ export default function RoleItem() {
                 <p className='item-data'>2025-07-12</p>
                 <p className='item-data'>2025-07-15</p>
             </section>
-            <section id='actions'>
+            <section id='actions-item'>
+                <ButtonEdit></ButtonEdit>
             </section>
         </section>
     )

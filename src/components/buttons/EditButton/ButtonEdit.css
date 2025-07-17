@@ -1,0 +1,17 @@
+#button-edit-component{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 25px;
+    height: 25px;
+
+    border: none;
+    background-color: transparent;
+    background-image: url("../../../assets/images/icons/edit.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 20px;
+    cursor: pointer;
+}

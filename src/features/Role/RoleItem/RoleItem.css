@@ -4,7 +4,9 @@
     align-items: center;
 
     width: 100%;
+    height: 40px;
     padding: 10px;
+    margin-top: 5px;
 
     background-color: #F9F9F9;
     border-radius: 10px;
@@ -45,19 +47,15 @@
     margin: 0;
 }
 
-#actions{
+#actions-item{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     
     width: 5%;
-
-
-
-    background-color: red;
 }
 
-#actions button {
-    width: 45%;
-    height: 45px;
-}
+#actions-item button {
+    width: 25px;
+    height: 25px;
+} 
