@@ -1,0 +1,44 @@
+#select-box-order-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    
+    width: fit-content;
+}
+
+.icon-label-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.icon-order {
+    width: 25px;
+    height: 25px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../../../assets/images/icons/order.png');
+}
+
+.label-order {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.select-order {
+    height: 43px;
+    padding: 6px 8px;
+
+    font-size: 14px;
+    border: 1px solid #1a1a1a;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+
+    cursor: pointer;
+}
