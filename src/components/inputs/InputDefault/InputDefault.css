@@ -24,3 +24,9 @@
     font-size: 1rem;
     font-family: inherit;
 }
+
+.input-form:focus {
+    outline: none; 
+    border: 1.5px solid black; 
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
