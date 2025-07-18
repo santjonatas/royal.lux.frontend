@@ -1,19 +1,25 @@
 import './SelectBoxOrderFilter.css';
-import { useState } from 'react';
 
-export default function SelectBoxOrderFilter() {
-    const [ascending, setAscending] = useState(false); 
+interface SelectBoxOrderFilterProps {
+  value: boolean; 
+  onChange: (isAscending: boolean) => void;
+}
 
-    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setAscending(e.target.value === 'asc');
-    };
+export default function SelectBoxOrderFilter({ value, onChange }: SelectBoxOrderFilterProps) {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    onChange(e.target.value === 'asc');
+  };
 
-    return (
-        <button id="select-box-order-filter">
-            <select className="select-order" value={ascending ? 'asc' : 'desc'} onChange={handleChange}>
-                <option value="asc">Crescente</option>
-                <option value="desc">Decrescente</option>
-            </select>
-        </button>
-    );
+  return (
+    <button id="select-box-order-filter">
+      <select 
+        className="select-order" 
+        value={value ? 'asc' : 'desc'} 
+        onChange={handleChange}
+      >
+        <option value="asc">Crescente</option>
+        <option value="desc">Decrescente</option>
+      </select>
+    </button>
+  );
 }
