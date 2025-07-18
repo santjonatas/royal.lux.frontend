@@ -59,13 +59,27 @@
 }
 
 #actions-filter button:nth-child(1) {
-    background-color: 	#3B82F6;
-    color: white;
+    background-color: #3B82F6;
+}
+
+#actions-filter button:nth-child(1):hover {
+    background-color: #2A72E5; 
+}
+
+#actions-filter button:nth-child(1):active {
+    background-color: #1962D4; 
 }
 
 #actions-filter button:nth-child(2) {
     background-color: #dc143c;
-    color: white;
+}
+
+#actions-filter button:nth-child(2):hover {
+    background-color: #c51236;
+}
+
+#actions-filter button:nth-child(2):active {
+    background-color: #ae102f; 
 }
 
 #filters input:nth-child(1) {

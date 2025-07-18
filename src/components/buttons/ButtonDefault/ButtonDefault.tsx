@@ -9,7 +9,7 @@ export default function ButtonDefault({ innerText, disabled = false }: ButtonDef
     return (
         <button 
             type="submit" 
-            id="button-login"
+            id="button-default"
             disabled={disabled}  
         >
             {innerText}
