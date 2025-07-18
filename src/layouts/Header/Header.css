@@ -7,4 +7,6 @@
     height: 70px;
 
     background-color: #F9F9F9;
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
