@@ -10,16 +10,30 @@
 
     border: none;
     cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 
     overflow: hidden; 
     flex-wrap: wrap; 
 
-    background-color: transparent;
+    background-color: #1A1A1A;
+    transition: background-color 0.2s ease;
+}
+
+#button-sidebar-default-component:hover {
+    background-color: #2A2A2A;
+}
+
+#button-sidebar-default-component:active {
+    background-color: #3A3A3A;
+}
+
+#button-sidebar-default-component:focus {
+    outline: none;
 }
 
 .name-button {
     font-size: clamp(0.7rem, 2vw, 1rem);
-    /* color: #333; */
     text-align: left;
 
     flex-grow: 1;
@@ -28,6 +42,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-left: 10%;
+
+    color: white; 
 }
 
 .img-button {
