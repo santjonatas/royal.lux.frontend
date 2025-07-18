@@ -92,6 +92,7 @@ export default function ForgotMyPassword() {
                 <ButtonDefault 
                     innerText={isLoading ? "Enviando..." : "Enviar"} 
                     disabled={isLoading}
+                    type="submit"
                 />
 
                 <div id='div-message'>

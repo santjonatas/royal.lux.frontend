@@ -109,7 +109,7 @@ export default function Login() {
               <label htmlFor="lembrar-senha">Lembrar senha</label>
             </div>
 
-            <ButtonDefault innerText="Login"></ButtonDefault>
+            <ButtonDefault innerText="Login" type="submit"></ButtonDefault>
 
             <div id='div-error-message'>
               {error && (

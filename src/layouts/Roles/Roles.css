@@ -63,3 +63,8 @@ h2 {
     box-sizing: border-box;
     flex-shrink: 0;
 }
+
+.no-data-message,
+.loading-message{
+    color: black;
+}

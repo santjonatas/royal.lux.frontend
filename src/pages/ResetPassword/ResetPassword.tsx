@@ -127,6 +127,7 @@ export default function ResetPassword() {
                 <ButtonDefault 
                     innerText={isLoading ? "Alterando..." : "Alterar Senha"} 
                     disabled={isLoading}
+                    type="submit"
                 />
 
                 <div id='div-message'>
