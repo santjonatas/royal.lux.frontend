@@ -1,10 +1,11 @@
-#role-filter-section{
-    display: flex;
-    justify-content: start;
+#role-filter-section {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    justify-content: center;
     align-items: center;
 
     width: 99%;
-    height: 70px;
+    height: 100%;
     padding: 10px;
 
     background-color: #F9F9F9;
@@ -12,8 +13,17 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#filter-icon{
-    width: 5%;
+#role-filter-section > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 95%;
+    height: 45px;
+}
+
+#filter-icon {
+    width: 60px;
     height: 45px;
     display: flex;
     justify-content: center;
@@ -26,66 +36,39 @@
     background-position: center;
 }
 
-#filters{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-    width: 70%;
-    gap: 10px;
+.icon-label-container{
+    color: black;
 }
 
-#filters input {
-    width: 20%;
-    height: 45px;
+#role-filter-section button:nth-of-type(3) {
+    background-color: #3B82F6; 
 }
 
-#filters button {
-    width: 15%;
-    height: 45px;
+#role-filter-section button:nth-of-type(3):hover {
+    background-color: #2A72E5;
 }
 
-#actions-filter{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    
-    width: 25%;
+#role-filter-section button:nth-of-type(3):active {
+    background-color: #1962D4;
 }
 
-#actions-filter button {
-    width: 45%;
-    height: 45px;
+#role-filter-section button:nth-of-type(4) {
+    background-color: #dc143c; 
 }
 
-#actions-filter button:nth-child(1) {
-    background-color: #3B82F6;
-}
-
-#actions-filter button:nth-child(1):hover {
-    background-color: #2A72E5; 
-}
-
-#actions-filter button:nth-child(1):active {
-    background-color: #1962D4; 
-}
-
-#actions-filter button:nth-child(2) {
-    background-color: #dc143c;
-}
-
-#actions-filter button:nth-child(2):hover {
+#role-filter-section button:nth-of-type(4):hover {
     background-color: #c51236;
 }
 
-#actions-filter button:nth-child(2):active {
-    background-color: #ae102f; 
+#role-filter-section button:nth-of-type(4):active {
+    background-color: #ae102f;
 }
 
-#filters input:nth-child(1) {
-    width: 9%;
-}
-
-#filters input:nth-child(5) {
-    width: 13%;
+.label-order{
+    white-space: nowrap;   
+    overflow: hidden;          
+    text-overflow: ellipsis;   
+    
+    text-align: start;
+    margin: 0;
 }

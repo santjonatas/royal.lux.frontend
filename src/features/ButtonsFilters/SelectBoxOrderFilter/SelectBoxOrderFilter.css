@@ -1,44 +1,49 @@
 #select-box-order-filter {
     display: flex;
     align-items: center;
-    gap: 10px;
-
+    height: 55px;
     border-radius: 8px;
-    
-    width: fit-content;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: transparent;
+    color: black;
+    gap: 10px;
+    border: solid 0px;
 }
 
 .icon-label-container {
     display: flex;
     align-items: center;
-    gap: 6px;
-}
-
-.icon-order {
-    width: 25px;
-    height: 25px;
-
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url('../../../assets/images/icons/order.png');
-}
-
-.label-order {
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
+    gap: 1%;
+    flex-shrink: 0; 
 }
 
 .select-order {
-    height: 43px;
+    flex-grow: 1;
+    height: 45px;
+    width: 100%;
     padding: 6px 8px;
-
     font-size: 14px;
     border: 1px solid #1a1a1a;
     border-radius: 5px;
     background-color: #1a1a1a;
-
     cursor: pointer;
     outline: none;
+    box-sizing: border-box;
+}
+
+.icon-order{
+    width: 3vh;
+    height: 24px;
+    background-image: url('../../../assets/images/icons/order.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-order{
+    font-size: 100%;
 }

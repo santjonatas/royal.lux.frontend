@@ -9,15 +9,11 @@ export default function SelectBoxOrderFilter() {
     };
 
     return (
-        <div id="select-box-order-filter">
-            <div className="icon-label-container">
-                <div className="icon-order" /> 
-                <span className="label-order">Ordem</span>
-            </div>
+        <button id="select-box-order-filter">
             <select className="select-order" value={ascending ? 'asc' : 'desc'} onChange={handleChange}>
                 <option value="asc">Crescente</option>
                 <option value="desc">Decrescente</option>
             </select>
-        </div>
+        </button>
     );
 }
