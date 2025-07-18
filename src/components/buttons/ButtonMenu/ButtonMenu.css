@@ -13,4 +13,16 @@
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
+
+    outline: none;
+    border-radius: 4px; 
+    transition: all 0.2s ease; 
+}
+
+#button-menu-component:hover {
+    background-color: #EDEDED; 
+}
+
+#button-menu-component:active {
+    transform: scale(0.95);
 }

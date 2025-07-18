@@ -1,4 +1,4 @@
-#button-logout-component{
+#button-logout-component {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,10 +7,21 @@
     height: 25px;
 
     border: none;
+    outline: none; 
     background-color: transparent;
     background-image: url("../../../assets/images/icons/logout.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
+    border-radius: 4px; 
+    transition: all 0.2s ease; 
+}
+
+#button-logout-component:hover {
+    background-color: #EDEDED; 
+}
+
+#button-logout-component:active {
+    transform: scale(0.95); 
 }

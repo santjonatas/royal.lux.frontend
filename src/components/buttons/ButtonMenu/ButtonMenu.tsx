@@ -1,7 +1,7 @@
 import './ButtonMenu.css';
 
 interface ButtonMenuProps {
-    onClick: () => void; // Garante que a função passada seja válida
+    onClick: () => void; 
 }
 
 export default function ButtonMenu({ onClick }: ButtonMenuProps) {

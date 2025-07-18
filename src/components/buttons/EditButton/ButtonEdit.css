@@ -1,4 +1,4 @@
-#button-edit-component{
+#button-edit-component {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,11 +7,25 @@
     height: 25px;
 
     border: none;
+    outline: none; 
     background-color: transparent;
     background-image: url("../../../assets/images/icons/edit.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
-    background-size: 20px;
+    background-size: 20px; 
     cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+#button-edit-component:hover {
+    background-color: #EDEDED;
+}
+
+#button-edit-component:active {
+    transform: scale(0.95); 
+}
+
+#button-edit-component:focus {
+    box-shadow: 0 0 0 2px rgb(255, 218, 8); 
 }
