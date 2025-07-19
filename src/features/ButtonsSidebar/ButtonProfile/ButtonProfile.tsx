@@ -45,6 +45,8 @@ export default function ButtonProfile({
           role: data.data.role,
           profileImage: data.data.profileImage 
         });
+
+        console.log(data);
       } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);
       } finally {

@@ -7,8 +7,6 @@ interface PrivateRouteProps {
 }
 
 export default function PrivateRoute({ children }: PrivateRouteProps) {
-  console.log("Renderizando PrivateRoute");
-
   const authToken = getValidAuthToken(); 
 
   if (!authToken) {

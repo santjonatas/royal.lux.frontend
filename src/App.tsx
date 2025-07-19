@@ -3,7 +3,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Profile from "./pages/Profile/Profile";
-import PrivateRoute from "./pages/PrivateRoute";
+import PrivateRoute from "./services/PrivateRoute";
 import ForgotMyPassword from "./pages/ForgotMyPassword/ForgotMyPassword";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 
