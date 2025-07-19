@@ -20,7 +20,7 @@ export default function RoleFilter({ onFilter }: RoleFilterProps) {
   const [name, setName] = useState('');
   const [detail, setDetail] = useState('');
   const [size, setSize] = useState('10');
-  const [ascending, setAscending] = useState(true);
+  const [ascending, setAscending] = useState(false);
 
   const handleSearch = () => {
     onFilter({
