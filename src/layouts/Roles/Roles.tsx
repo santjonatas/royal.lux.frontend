@@ -61,7 +61,7 @@ export default function Roles() {
     const rolesData = Array.isArray(data) ? data : data.content || data.data || [];
     const totalElements = data.totalElements || data.size || rolesData.length;
 
-    console.log('Dados recebidos:', { data, rolesData, totalElements }); 
+    console.log({ data, rolesData, totalElements }); 
 
     setRoles(rolesData);
     setPagination(prev => ({
