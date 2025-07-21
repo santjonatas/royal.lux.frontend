@@ -3,6 +3,7 @@ import Pagination from '../../../features/ButtonsFilters/Pagination/Pagination';
 import RoleFilter from '../../../features/Role/RoleFilter/RoleFilter';
 import RoleHeader from '../../../features/Role/RoleHeader/RoleHeader';
 import RoleItem from '../../../features/Role/RoleItem/RoleItem';
+import RoleAdd from '../RoleAdd/RoleAdd'; 
 import './Roles.css';
 
 interface Role {
@@ -13,14 +14,11 @@ interface Role {
   updatedAt: string | null;
 }
 
-interface RolesProps {
-  goToAddPage: () => void;
-}
-
-export default function Roles({ goToAddPage }: RolesProps) {
+export default function Roles() {
   const [roles, setRoles] = useState<Role[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showAddPage, setShowAddPage] = useState(false); 
   const [pagination, setPagination] = useState({
     page: 0, 
     size: 10,
@@ -36,50 +34,48 @@ export default function Roles({ goToAddPage }: RolesProps) {
   const API_URL = `http://${import.meta.env.VITE_API_URL}`;
 
   const fetchRoles = async () => {
-  setLoading(true);
-  setError(null);
-  
-  try {
-    const token = localStorage.getItem('authToken');
-    if (!token) throw new Error('Token de autenticação não encontrado');
-
-    const params = new URLSearchParams();
-    if (filters.id) params.append('id', filters.id);
-    if (filters.name) params.append('name', filters.name);
-    if (filters.detail) params.append('detail', filters.detail);
-    params.append('page', pagination.page.toString());
-    params.append('size', pagination.size.toString());
-    params.append('ascending', filters.ascending.toString());
-
-    const response = await fetch(`${API_URL}/api/roles?${params.toString()}`, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      }
-    });
-
-    if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
-
-    const data = await response.json();
+    setLoading(true);
+    setError(null);
     
-    const rolesData = Array.isArray(data) ? data : data.content || data.data || [];
-    const totalElements = data.totalElements || data.size || rolesData.length;
+    try {
+      const token = localStorage.getItem('authToken');
+      if (!token) throw new Error('Token de autenticação não encontrado');
 
-    console.log({ data, rolesData, totalElements }); 
+      const params = new URLSearchParams();
+      if (filters.id) params.append('id', filters.id);
+      if (filters.name) params.append('name', filters.name);
+      if (filters.detail) params.append('detail', filters.detail);
+      params.append('page', pagination.page.toString());
+      params.append('size', pagination.size.toString());
+      params.append('ascending', filters.ascending.toString());
 
-    setRoles(rolesData);
-    setPagination(prev => ({
-      ...prev,
-      totalElements: Number(totalElements)
-    }));
+      const response = await fetch(`${API_URL}/api/roles?${params.toString()}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
+
+      const data = await response.json();
+      
+      const rolesData = Array.isArray(data) ? data : data.content || data.data || [];
+      const totalElements = data.totalElements || data.size || rolesData.length;
+
+      setRoles(rolesData);
+      setPagination(prev => ({
+        ...prev,
+        totalElements: Number(totalElements)
+      }));
 
     } catch (err) {
-        setError(err instanceof Error ? err.message : 'Erro desconhecido');
-        console.error('Erro na requisição:', err);
+      setError(err instanceof Error ? err.message : 'Erro desconhecido');
+      console.error('Erro na requisição:', err);
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
-    };
+  };
 
   const handleFilter = (newFilters: {
     id: string;
@@ -105,11 +101,23 @@ export default function Roles({ goToAddPage }: RolesProps) {
     setPagination(prev => ({ ...prev, page: newPage }));
   };
 
-  useEffect(() => {
-    fetchRoles();
-  }, [pagination.page, pagination.size, filters]);
+  const goToAddPage = () => setShowAddPage(true);
+  const goBackToList = () => {
+    setShowAddPage(false);
+    fetchRoles(); ;
+  };
 
-  return (
+  useEffect(() => {
+    if (!showAddPage) {
+      fetchRoles();
+    }
+  }, [pagination.page, pagination.size, filters, showAddPage]);
+
+  if (showAddPage) {
+    return <RoleAdd goBack={goBackToList} />;
+  }
+
+  return (    
     <main id="main-roles-page">
       <article id='roles-header'>
         <h2>Funções</h2>
