@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import Pagination from '../../features/ButtonsFilters/Pagination/Pagination';
-import RoleFilter from '../../features/Role/RoleFilter/RoleFilter';
-import RoleHeader from '../../features/Role/RoleHeader/RoleHeader';
-import RoleItem from '../../features/Role/RoleItem/RoleItem';
+import Pagination from '../../../features/ButtonsFilters/Pagination/Pagination';
+import RoleFilter from '../../../features/Role/RoleFilter/RoleFilter';
+import RoleHeader from '../../../features/Role/RoleHeader/RoleHeader';
+import RoleItem from '../../../features/Role/RoleItem/RoleItem';
 import './Roles.css';
 
 interface Role {
@@ -13,7 +13,11 @@ interface Role {
   updatedAt: string | null;
 }
 
-export default function Roles() {
+interface RolesProps {
+  goToAddPage: () => void;
+}
+
+export default function Roles({ goToAddPage }: RolesProps) {
   const [roles, setRoles] = useState<Role[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -112,7 +116,10 @@ export default function Roles() {
       </article>
       
       <section id='roles-filter'>
-        <RoleFilter onFilter={handleFilter} />
+        <RoleFilter 
+          onFilter={handleFilter} 
+          onAdd={goToAddPage}
+        />
         <RoleHeader />
       </section>
       

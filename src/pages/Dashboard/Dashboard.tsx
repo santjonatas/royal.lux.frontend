@@ -3,7 +3,8 @@ import Header from '../../layouts/Header/Header';
 import Sidebar from '../../layouts/Sidebar/Sidebar';
 import './Dashboard.css';
 
-import Roles from '../../layouts/Roles/Roles';
+import Roles from '../../layouts/Role/Roles/Roles';
+import RoleAdd from '../../layouts/Role/RoleAdd/RoleAdd';
 
 export default function Dashboard() {
     useEffect(() => {
@@ -27,8 +28,15 @@ export default function Dashboard() {
             //     return <DashboardHome />;
             // case "users":
             //     return <Users />;
+
+
+            // case 'roles':
             case "roles":
-                return <Roles />;
+                return <Roles goToAddPage={() => setCurrentPage("roleAdd")} />;
+            case "roleAdd":
+                return <RoleAdd />;
+
+
             // case "customerServices":
             //     return <CustomerServices />;
             // case "services":

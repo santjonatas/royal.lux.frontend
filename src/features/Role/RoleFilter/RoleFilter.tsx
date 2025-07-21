@@ -13,9 +13,10 @@ interface RoleFilterProps {
     size: string;
     ascending: boolean;
   }) => void;
+  onAdd: () => void; 
 }
 
-export default function RoleFilter({ onFilter }: RoleFilterProps) {
+export default function RoleFilter({ onFilter, onAdd }: RoleFilterProps) {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [detail, setDetail] = useState('');
@@ -77,7 +78,7 @@ export default function RoleFilter({ onFilter }: RoleFilterProps) {
       
       <ButtonDefault 
         innerText='Adicionar'
-        onClick={() => {}} 
+        onClick={onAdd} 
       />
       
       <ButtonDefault 
