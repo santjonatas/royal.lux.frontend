@@ -16,6 +16,10 @@
     height: 30px;
 }
 
-#role-pagination button:nth-child(6) {
+#role-pagination button:nth-child(1) {
+    width: 75px;
+}
+
+#role-pagination button:nth-child(7) {
     width: 75px;
 }
