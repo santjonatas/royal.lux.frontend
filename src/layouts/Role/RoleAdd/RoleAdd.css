@@ -1,6 +1,17 @@
+#roles-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
 #main-role-add-page {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin: auto;
 
     width: 98%;
@@ -12,12 +23,45 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-#roles-header {
+#role-add-action-page{
+    font-weight: 400;
+    padding: 15px;
+    color: #333;
+    margin: 0;
+}
+
+#div-inputs-role-add {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    width: 100%;
+}
+
+#div-inputs-role-add input {
+    width: 60%;
+    margin: 15px;
+}
+
+#div-inputs-role-add input:nth-of-type(1){
+    width: 40%;
+}
+
+#div-inputs-role-add input:nth-of-type(2) {
+    height: 300px;
+    padding-bottom: 250px;
+}
+
+#div-buttons-role-add {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: row;
+    gap: 5%;
+    justify-content: start;
     align-items: center;
     width: 100%;
-    padding: 1rem;
-    flex-shrink: 0;
+    padding: 15px;
     box-sizing: border-box;
+}
+
+#div-buttons-role-add button {
+    width: 15%;
 }
