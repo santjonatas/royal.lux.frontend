@@ -24,25 +24,10 @@ export default function Dashboard() {
 
     const renderPage = () => {
         switch (currentPage) {
-            // case "home":
-            //     return <DashboardHome />;
-            // case "users":
-            //     return <Users />;
-
-
-            // case 'roles':
             case "roles":
-                return <Roles goToAddPage={() => setCurrentPage("roleAdd")} />;
+                return <Roles />;
             case "roleAdd":
-                return <RoleAdd />;
-
-
-            // case "customerServices":
-            //     return <CustomerServices />;
-            // case "services":
-            //     return <Services />;
-            // case "materials":
-            //     return <Materials />;
+                return <RoleAdd goBack={() => setCurrentPage("roles")} />;
             default:
                 return <h1>Página não encontrada</h1>;
         }

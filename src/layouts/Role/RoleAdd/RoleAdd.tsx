@@ -9,7 +9,7 @@ interface RoleFormData {
 }
 
 interface RoleAddProps {
-  goBack: () => void; // Função para voltar à lista de roles
+  goBack: () => void;
 }
 
 export default function RoleAdd({ goBack }: RoleAddProps) {
@@ -56,7 +56,6 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
         throw new Error(errorData.message || `Erro ${response.status}: ${response.statusText}`);
       }
 
-      // Chama a função para voltar à lista após sucesso
       goBack();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erro ao criar função');
