@@ -1,0 +1,78 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-cancel {
+  background-color: #ccc;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  color: black;
+  transition: background-color 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #b3b3b3;
+}
+
+.btn-cancel:active {
+  background-color: #999999;
+}
+
+.btn-cancel:focus,
+.btn-cancel:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.btn-confirm {
+  background-color: #dc143c;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-confirm:hover {
+  background-color: #c51236;
+}
+
+.btn-confirm:active {
+  background-color: #ae102f;
+}
+
+.btn-confirm:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}

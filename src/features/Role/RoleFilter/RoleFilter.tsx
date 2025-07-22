@@ -14,9 +14,10 @@ interface RoleFilterProps {
     ascending: boolean;
   }) => void;
   onAdd: () => void; 
+  onDelete: () => void;
 }
 
-export default function RoleFilter({ onFilter, onAdd }: RoleFilterProps) {
+export default function RoleFilter({ onFilter, onAdd, onDelete }: RoleFilterProps) {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [detail, setDetail] = useState('');
@@ -83,8 +84,9 @@ export default function RoleFilter({ onFilter, onAdd }: RoleFilterProps) {
       
       <ButtonDefault 
         innerText='Deletar'
-        onClick={() => {}} 
+        onClick={onDelete}
       />
+
     </section>
   );
 }

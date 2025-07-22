@@ -7,6 +7,8 @@ interface RoleItemProps {
   detail: string;
   createdAt: string;
   updatedAt: string | null;
+  checked: boolean;
+  onSelect: (id: number) => void;
 }
 
 export default function RoleItem({
@@ -14,30 +16,31 @@ export default function RoleItem({
   name,
   detail,
   createdAt,
-  updatedAt
+  updatedAt,
+  checked,
+  onSelect
 }: RoleItemProps) {
-
-    return (
-        <section id="role-item">
-            <div id='section-checkbox-role-item'>
-                <input
-                  type="checkbox"
-                  id="checkbox-role-item"
-                  name="checkbox-role-item"
-                />
-            </div>
-            <section id='items'>
-                <p className='item-data'>{id}</p>
-                <p className='item-data'>{name}</p>
-                <p className='item-data'>{detail}</p>
-                <p className='item-data'>{new Date(createdAt).toLocaleDateString()}</p>
-                <p className='item-data'>
-                  {updatedAt ? new Date(updatedAt).toLocaleDateString() : 'N/A'}
-                </p>
-            </section>
-            <section id='actions-item'>
-                <ButtonEdit></ButtonEdit>
-            </section>
-        </section>
-    )
+  return (
+    <section id="role-item">
+      <div id='section-checkbox-role-item'>
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={() => onSelect(id)}
+        />
+      </div>
+      <section id='items'>
+        <p className='item-data'>{id}</p>
+        <p className='item-data'>{name}</p>
+        <p className='item-data'>{detail}</p>
+        <p className='item-data'>{new Date(createdAt).toLocaleDateString()}</p>
+        <p className='item-data'>
+          {updatedAt ? new Date(updatedAt).toLocaleDateString() : 'N/A'}
+        </p>
+      </section>
+      <section id='actions-item'>
+        <ButtonEdit />
+      </section>
+    </section>
+  );
 }
