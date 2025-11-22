@@ -96,14 +96,14 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
 
         <div id="div-buttons-role-add">
           <ButtonDefault 
-            innerText={loading ? "Processando..." : "Adicionar"} 
-            type="submit"
-            disabled={loading}
-          />
-          <ButtonDefault 
             innerText="Cancelar" 
             type="button"
             onClick={goBack}
+            disabled={loading}
+          />
+          <ButtonDefault 
+            innerText={loading ? "Processando..." : "Adicionar"} 
+            type="submit"
             disabled={loading}
           />
         </div>
