@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import ButtonDefault from '../../../components/buttons/ButtonDefault/ButtonDefault';
 import InputDefault from '../../../components/inputs/InputDefault/InputDefault';
+import InputRegisterProps from '../../../components/inputs/InputRegister/InputRegister';
 import './RoleAdd.css';
+
+import IconNameImg from '../../../assets/images/icons/suitcase.png';
+import IconDetailsImg from '../../../assets/images/icons/document.png';
+import IconSuitcaseImg from '../../../assets/images/icons/suitcase-simple.png';
+import ArticleTitlePage from '../../../components/articles/ArticleTitlePage/ArticleTitlePage';
 
 interface RoleFormData {
   name: string;
@@ -64,32 +70,44 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
       setLoading(false);
     }
   };
-
+  
   return (
     <>
-      <article id='roles-header'>
-        <h2>Funções</h2>
-      </article>
+      <ArticleTitlePage
+        img={IconSuitcaseImg}
+        alt="Função"
+        name="Funções"
+        description="Gerencie as funções do sistema"
+      >
+      </ArticleTitlePage>
       <form id="main-role-add-page" onSubmit={handleSubmit}>
         <h3 id="role-add-action-page">Adicionar nova função</h3>
         <div id="div-inputs-role-add">
-          <InputDefault 
-            placeholder="Nome" 
+          <InputRegisterProps
+            img={IconNameImg}
+            label="Nome da função"
+            alt="Função"
+            placeholder="Ex: Atendente" 
             name="name" 
             value={formData.name} 
             onChange={handleChange} 
             required
             disabled={loading}
-          />
+            >
+          </InputRegisterProps>
 
-          <InputDefault 
-            placeholder="Detalhes" 
+          <InputRegisterProps
+            img={IconDetailsImg}
+            label="Detalhes"
+            alt="Detalhes"
+            placeholder="Ex: Responsável pelo atendimento ao cliente" 
             name="detail" 
             value={formData.detail} 
             onChange={handleChange} 
             required
             disabled={loading}
-          />
+            >
+          </InputRegisterProps>
         </div>
 
         {error && <div className="error-message">{error}</div>}

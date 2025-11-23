@@ -7,6 +7,9 @@ import RoleAdd from '../RoleAdd/RoleAdd';
 import ModalConfirm from '../../../components/modals/ModalConfirm/ModalConfirm';
 import './Roles.css';
 
+import ArticleTitlePage from '../../../components/articles/ArticleTitlePage/ArticleTitlePage';
+import IconSuitcaseImg from '../../../assets/images/icons/suitcase-simple.png';
+
 interface Role {
   id: number;
   name: string;
@@ -158,9 +161,13 @@ export default function Roles() {
 
   return (
     <main id="main-roles-page">
-      <article id="roles-header">
-        <h2>Funções</h2>
-      </article>
+      <ArticleTitlePage
+        img={IconSuitcaseImg}
+        alt="Função"
+        name="Funções"
+        description="Gerencie as funções do sistema"
+      >
+      </ArticleTitlePage>
 
       <section id="roles-filter">
         <RoleFilter

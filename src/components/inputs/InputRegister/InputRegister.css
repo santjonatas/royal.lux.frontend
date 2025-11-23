@@ -1,0 +1,25 @@
+#div-input-register{
+    width: 97%;
+    margin: 1%;
+}
+
+#label-input-register{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    padding-left: 5px;
+}
+
+#img-input-register{
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+}
+
+#name-field-register{
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
