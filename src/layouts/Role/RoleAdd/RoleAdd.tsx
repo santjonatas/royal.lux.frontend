@@ -110,7 +110,9 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
           </InputRegisterProps>
         </div>
 
-        {error && <div className="error-message">{error}</div>}
+        <div id="div-error-message">
+          {error && <div className="error-message">{error}</div>}
+        </div>
 
         <div id="div-buttons-role-add">
           <ButtonDefault 

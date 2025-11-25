@@ -34,16 +34,18 @@ export default function InputRegister({
         <img src={img} alt={alt} id="img-input-register"/>
         <h3 id="name-field-register">{label}</h3>
       </label>
-      <InputDefault
-      value={value}
-      onChange={onChange}
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      required={required}
-      disabled={disabled}
-      >
-    </InputDefault>
+      <div id="div-input">
+        <InputDefault
+        value={value}
+        onChange={onChange}
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        required={required}
+        disabled={disabled}
+        >
+      </InputDefault>
+      </div>
     </div>
   );
 }

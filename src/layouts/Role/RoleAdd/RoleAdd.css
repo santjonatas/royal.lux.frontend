@@ -22,6 +22,7 @@
 #div-inputs-role-add {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
 
     width: 100%;
 }
@@ -34,7 +35,7 @@
 #div-buttons-role-add {
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    gap: 2%;
     justify-content: end;
     align-items: center;
     width: 100%;
@@ -43,8 +44,17 @@
 }
 
 #div-buttons-role-add button {
-    width: 15%;
+    width: 17vh;
     margin-right: 1%;
+}
+
+#div-error-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 97%;
+    margin: auto;
 }
 
 #main-role-add-page .error-message {
@@ -52,7 +62,7 @@
     margin: 1%;
 }
 
-#div-inputs-role-add div:nth-child(2) input{
+#div-inputs-role-add div:nth-child(2) div input{
     height: 150px;
     padding-bottom: 100px;
 }

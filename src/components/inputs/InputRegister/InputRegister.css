@@ -3,6 +3,14 @@
     margin: 1%;
 }
 
+#div-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
 #label-input-register{
     display: flex;
     flex-direction: row;
