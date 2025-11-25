@@ -78,7 +78,7 @@ export default function RoleFilter({ onFilter, onAdd, onDelete }: RoleFilterProp
       />
       
       <ButtonDefault 
-        innerText='Adicionar'
+        innerText='+ Adicionar'
         onClick={onAdd} 
       />
       

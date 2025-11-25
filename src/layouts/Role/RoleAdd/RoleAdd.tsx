@@ -122,7 +122,7 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
             disabled={loading}
           />
           <ButtonDefault 
-            innerText={loading ? "Processando..." : "Adicionar"} 
+            innerText={loading ? "Processando..." : "+ Adicionar"} 
             type="submit"
             disabled={loading}
           />
