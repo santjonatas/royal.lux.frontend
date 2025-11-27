@@ -85,7 +85,7 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
         <div id="div-inputs-role-add">
           <InputRegisterProps
             img={IconNameImg}
-            label="Nome da função"
+            label="Nome"
             alt="Função"
             placeholder="Ex: Atendente" 
             name="name" 
