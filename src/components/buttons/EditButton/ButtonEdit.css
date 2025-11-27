@@ -9,7 +9,7 @@
     border: none;
     outline: none; 
     background-color: transparent;
-    background-image: url("../../../assets/images/icons/edit.png");
+    background-image: url("../../../assets/images/icons/eye.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 20px; 
@@ -24,8 +24,4 @@
 
 #button-edit-component:active {
     transform: scale(0.95); 
-}
-
-#button-edit-component:focus {
-    box-shadow: 0 0 0 2px rgb(255, 218, 8); 
 }
