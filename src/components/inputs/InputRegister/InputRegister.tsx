@@ -14,6 +14,8 @@ interface InputRegisterProps {
     img: string;
     label: string;
     alt: string;
+
+    id?: string;
 }
 
 export default function InputRegister({
@@ -26,7 +28,8 @@ export default function InputRegister({
   disabled = false,
   img = DefaultIconImage,
   alt = "Descrição da imagem",
-  label = "Nome do campo"
+  label = "Nome do campo",
+  id = ""
   }: InputRegisterProps) {
   return (
     <div id='div-input-register'>
@@ -36,6 +39,7 @@ export default function InputRegister({
       </label>
       <div id="div-input">
         <InputDefault
+        id={id}
         value={value}
         onChange={onChange}
         type={type}

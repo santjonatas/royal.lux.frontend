@@ -1,4 +1,4 @@
-import ButtonEdit from '../../../components/buttons/EditButton/ButtonEdit'
+import ButtonView from '../../../components/buttons/EditButton/ButtonView';
 import './RoleItem.css'
 
 interface RoleItemProps {
@@ -9,6 +9,7 @@ interface RoleItemProps {
   updatedAt: string | null;
   checked: boolean;
   onSelect: (id: number) => void;
+  onView: () => void; 
 }
 
 export default function RoleItem({
@@ -18,7 +19,8 @@ export default function RoleItem({
   createdAt,
   updatedAt,
   checked,
-  onSelect
+  onSelect,
+  onView
 }: RoleItemProps) {
   return (
     <section id="role-item">
@@ -39,7 +41,9 @@ export default function RoleItem({
         </p>
       </section>
       <section id='actions-item'>
-        <ButtonEdit />
+        <ButtonView
+        onClick={onView}
+        />
       </section>
     </section>
   );

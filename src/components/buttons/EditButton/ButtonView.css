@@ -1,10 +1,10 @@
-#button-edit-component {
+#button-view-component {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
 
     border: none;
     outline: none; 
@@ -12,16 +12,16 @@
     background-image: url("../../../assets/images/icons/eye.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 20px; 
+    background-size: 25px; 
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.2s ease;
 }
 
-#button-edit-component:hover {
+#button-view-component:hover {
     background-color: #EDEDED;
 }
 
-#button-edit-component:active {
+#button-view-component:active {
     transform: scale(0.95); 
 }

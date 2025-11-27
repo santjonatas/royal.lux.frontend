@@ -9,6 +9,7 @@ import './Roles.css';
 
 import ArticleTitlePage from '../../../components/articles/ArticleTitlePage/ArticleTitlePage';
 import IconSuitcaseImg from '../../../assets/images/icons/suitcase-simple.png';
+import RoleView from '../RoleView/RoleView';
 
 interface Role {
   id: number;
@@ -23,6 +24,7 @@ export default function Roles() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showAddPage, setShowAddPage] = useState(false);
+  const [showViewPage, setShowViewPage] = useState(false);
 
   const [pagination, setPagination] = useState({
     page: 0,
@@ -110,8 +112,11 @@ export default function Roles() {
   };
 
   const goToAddPage = () => setShowAddPage(true);
+  const goToViewPage = () => setShowViewPage(true);
+
   const goBackToList = () => {
     setShowAddPage(false);
+    setShowViewPage(false);
     fetchRoles();
   };
 
@@ -159,6 +164,10 @@ export default function Roles() {
     return <RoleAdd goBack={goBackToList} />;
   }
 
+  if (showViewPage) {
+    return <RoleView goBack={goBackToList} />;
+  }
+
   return (
     <main id="main-roles-page">
       <ArticleTitlePage
@@ -196,6 +205,7 @@ export default function Roles() {
               updatedAt={role.updatedAt}
               checked={selectedIds.includes(role.id)}
               onSelect={handleSelectItem}
+              onView={goToViewPage}
             />
           ))
         )}

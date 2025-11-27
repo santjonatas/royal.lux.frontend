@@ -8,6 +8,7 @@ interface InputDefaultProps {
   name?: string;
   required?: boolean;
   disabled?: boolean;
+  id?: string;
 }
 
 export default function InputDefault({
@@ -18,9 +19,11 @@ export default function InputDefault({
   name = "",
   required = false,
   disabled = false,
+  id = ""
   }: InputDefaultProps) {
     return (
       <input
+        id={id}
         value={value}
         onChange={onChange}
         type={type}

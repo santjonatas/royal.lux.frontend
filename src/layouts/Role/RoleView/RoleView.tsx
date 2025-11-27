@@ -1,27 +1,35 @@
 import { useState } from 'react';
 import ButtonDefault from '../../../components/buttons/ButtonDefault/ButtonDefault';
-import InputDefault from '../../../components/inputs/InputDefault/InputDefault';
 import InputRegisterProps from '../../../components/inputs/InputRegister/InputRegister';
-import './RoleAdd.css';
+import './RoleView.css';
 
 import IconNameImg from '../../../assets/images/icons/suitcase.png';
 import IconDetailsImg from '../../../assets/images/icons/document.png';
 import IconSuitcaseImg from '../../../assets/images/icons/suitcase-simple.png';
 import ArticleTitlePage from '../../../components/articles/ArticleTitlePage/ArticleTitlePage';
+import IconIdImg from '../../../assets/images/icons/id.png';
+import IconCreatedAtImg from '../../../assets/images/icons/calendar-date.png';
+import IconUpdatedAtImg from '../../../assets/images/icons/calendar.png';
 
-interface RoleFormData {
+interface RoleViewFormData {
+  id: string;
   name: string;
   detail: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
-interface RoleAddProps {
+interface RoleViewProps {
   goBack: () => void;
 }
 
-export default function RoleAdd({ goBack }: RoleAddProps) {
-  const [formData, setFormData] = useState<RoleFormData>({
+export default function RoleView({ goBack }: RoleViewProps) {
+  const [formData, setFormData] = useState<RoleViewFormData>({
+    id: '',
     name: '',
-    detail: ''
+    detail: '',
+    createdAt: '',
+    updatedAt: ''
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -52,6 +60,7 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+          id: formData.id,
           name: formData.name,
           detail: formData.detail
         })
@@ -81,12 +90,25 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
       >
       </ArticleTitlePage>
       <form id="main-role-add-page" onSubmit={handleSubmit}>
-        <h3 id="role-add-action-page">Adicionar nova função</h3>
+        <h3 id="role-add-action-page">Detalhes da função</h3>
         <div id="div-inputs-role-add">
+          <InputRegisterProps
+            img={IconIdImg}
+            label="Id"
+            alt="Id"
+            placeholder="Ex: 1" 
+            name="id" 
+            value={formData.id} 
+            onChange={handleChange} 
+            required
+            disabled={loading}
+            >
+          </InputRegisterProps>
+
           <InputRegisterProps
             img={IconNameImg}
             label="Nome"
-            alt="Função"
+            alt="Nome"
             placeholder="Ex: Atendente" 
             name="name" 
             value={formData.name} 
@@ -97,13 +119,38 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
           </InputRegisterProps>
 
           <InputRegisterProps
-            id='details-id'
             img={IconDetailsImg}
             label="Detalhes"
             alt="Detalhes"
             placeholder="Ex: Responsável pelo atendimento ao cliente" 
             name="detail" 
             value={formData.detail} 
+            onChange={handleChange} 
+            required
+            disabled={loading}
+            >
+          </InputRegisterProps>
+
+          <InputRegisterProps
+            img={IconCreatedAtImg}
+            label="Criado em"
+            alt="Criado em"
+            placeholder="Ex: 23/11/2025 19:34" 
+            name="createdAt" 
+            value={formData.createdAt} 
+            onChange={handleChange} 
+            required
+            disabled={loading}
+            >
+          </InputRegisterProps>
+
+          <InputRegisterProps
+            img={IconUpdatedAtImg}
+            label="Alterado em"
+            alt="Alterado em"
+            placeholder="Ex: 23/11/2025 20:58" 
+            name="updatedAt" 
+            value={formData.updatedAt} 
             onChange={handleChange} 
             required
             disabled={loading}
@@ -123,7 +170,7 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
             disabled={loading}
           />
           <ButtonDefault 
-            innerText={loading ? "Processando..." : "+ Adicionar"} 
+            innerText={loading ? "Processando..." : "Salvar"} 
             type="submit"
             disabled={loading}
           />
