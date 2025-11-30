@@ -8,6 +8,7 @@ interface InputDefaultProps {
   name?: string;
   required?: boolean;
   disabled?: boolean;
+  readOnly?: boolean;
   id?: string;
 }
 
@@ -19,6 +20,7 @@ export default function InputDefault({
   name = "",
   required = false,
   disabled = false,
+  readOnly = false,
   id = ""
   }: InputDefaultProps) {
     return (
@@ -32,6 +34,7 @@ export default function InputDefault({
         placeholder={placeholder}
         required={required}
         disabled={disabled}
+        readOnly={readOnly}
       />
     );
 }

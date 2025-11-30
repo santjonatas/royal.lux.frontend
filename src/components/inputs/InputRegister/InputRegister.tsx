@@ -10,6 +10,7 @@ interface InputRegisterProps {
     name?: string;
     required?: boolean;
     disabled?: boolean;
+    readOnly?: boolean;
 
     img: string;
     label: string;
@@ -26,6 +27,7 @@ export default function InputRegister({
   name = "",
   required = false,
   disabled = false,
+  readOnly = false,
   img = DefaultIconImage,
   alt = "Descrição da imagem",
   label = "Nome do campo",
@@ -47,6 +49,7 @@ export default function InputRegister({
         placeholder={placeholder}
         required={required}
         disabled={disabled}
+        readOnly={readOnly}
         >
       </InputDefault>
       </div>

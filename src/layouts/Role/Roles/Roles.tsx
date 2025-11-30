@@ -25,6 +25,7 @@ export default function Roles() {
   const [error, setError] = useState<string | null>(null);
   const [showAddPage, setShowAddPage] = useState(false);
   const [showViewPage, setShowViewPage] = useState(false);
+  const [selectedRoleId, setSelectedRoleId] = useState<number | null>(null);
 
   const [pagination, setPagination] = useState({
     page: 0,
@@ -112,11 +113,16 @@ export default function Roles() {
   };
 
   const goToAddPage = () => setShowAddPage(true);
-  const goToViewPage = () => setShowViewPage(true);
+
+  const goToViewPage = (id: number) => {
+    setSelectedRoleId(id);
+    setShowViewPage(true);
+  };
 
   const goBackToList = () => {
     setShowAddPage(false);
     setShowViewPage(false);
+    setSelectedRoleId(null);
     fetchRoles();
   };
 
@@ -164,8 +170,8 @@ export default function Roles() {
     return <RoleAdd goBack={goBackToList} />;
   }
 
-  if (showViewPage) {
-    return <RoleView goBack={goBackToList} />;
+  if (showViewPage && selectedRoleId !== null) {
+    return <RoleView goBack={goBackToList} roleId={selectedRoleId} />;
   }
 
   return (
@@ -205,7 +211,7 @@ export default function Roles() {
               updatedAt={role.updatedAt}
               checked={selectedIds.includes(role.id)}
               onSelect={handleSelectItem}
-              onView={goToViewPage}
+              onView={() => goToViewPage(role.id)}
             />
           ))
         )}
