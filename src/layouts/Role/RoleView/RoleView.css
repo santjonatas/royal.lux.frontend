@@ -79,7 +79,7 @@
 #div-inputs-role-view input:not(:disabled) {
     background-color: #FFFFFF;
     color: #1F2937;
-    border: 2px solid #3B82F6;
+    border: 1px solid #3B82F6;
     cursor: text;
 }
 
