@@ -208,7 +208,7 @@ export default function RoleView({ goBack, roleId }: RoleViewProps) {
       img={IconSuitcaseImg}
       alt="Função"
       name="Funções"
-      description={isEditing ? "Edite esta função" : "Detalhes da função"}
+      description={"Gerencie as funções do sistema"}
     >
     </ArticleTitlePage>
       <form id="main-role-add-page" onSubmit={handleSubmit}>
