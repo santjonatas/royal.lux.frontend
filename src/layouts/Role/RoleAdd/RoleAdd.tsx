@@ -105,7 +105,6 @@ export default function RoleAdd({ goBack }: RoleAddProps) {
             name="detail" 
             value={formData.detail} 
             onChange={handleChange} 
-            required
             disabled={loading}
             >
           </InputRegisterProps>
