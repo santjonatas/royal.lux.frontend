@@ -9,6 +9,7 @@ import IconSuitcaseImg from '../../../assets/images/icons/suitcase-simple.png';
 import ArticleTitlePage from '../../../components/articles/ArticleTitlePage/ArticleTitlePage';
 import IconIdImg from '../../../assets/images/icons/id.png';
 import IconDateImg from '../../../assets/images/icons/calendar.png';
+import TextAreaRegister from '../../../components/inputs/TextAreaRegister/TextAreaRegister';
 
 interface RoleViewFormData {
   id: string;
@@ -131,6 +132,14 @@ export default function RoleView({ goBack, roleId }: RoleViewProps) {
     }));
   };
 
+  const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
   const handleEdit = () => {
     setIsEditing(true);
   };
@@ -195,14 +204,15 @@ export default function RoleView({ goBack, roleId }: RoleViewProps) {
   return (
     <>
       <ArticleTitlePage
-        img={IconSuitcaseImg}
-        alt="Função"
-        name="Funções"
-        description="Gerencie as funções do sistema"
-      >
-      </ArticleTitlePage>
+      key={isEditing ? 'editing' : 'viewing'}
+      img={IconSuitcaseImg}
+      alt="Função"
+      name="Funções"
+      description={isEditing ? "Edite esta função" : "Detalhes da função"}
+    >
+    </ArticleTitlePage>
       <form id="main-role-add-page" onSubmit={handleSubmit}>
-        <h3 id="role-add-action-page">Detalhes da função</h3>
+        <h3 id="role-add-action-page">{isEditing ? "Edite esta função" : "Detalhes da função"}</h3>
         
         {loading && <div className="loading-message">Carregando...</div>}
         
@@ -233,7 +243,7 @@ export default function RoleView({ goBack, roleId }: RoleViewProps) {
             >
           </InputRegisterProps>
 
-          <InputRegisterProps
+          <TextAreaRegister
             id='details-id'
             img={IconDetailsImg}
             label="Detalhes"
@@ -241,11 +251,11 @@ export default function RoleView({ goBack, roleId }: RoleViewProps) {
             placeholder="Ex: Responsável pelo atendimento ao cliente" 
             name="detail" 
             value={formData.detail} 
-            onChange={handleChange} 
+            onChange={handleTextAreaChange}
             required
             disabled={!isEditing || loading}
             >
-          </InputRegisterProps>
+          </TextAreaRegister>
 
           <InputRegisterProps
             img={IconDateImg}
