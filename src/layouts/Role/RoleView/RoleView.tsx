@@ -234,7 +234,7 @@ export default function RoleView({ goBack, roleId }: RoleViewProps) {
             img={IconNameImg}
             label="Nome"
             alt="Nome"
-            placeholder="Ex: Atendente" 
+            placeholder={!isEditing ? "" : "Ex: Atendente"}
             name="name" 
             value={formData.name} 
             onChange={handleChange} 
@@ -248,7 +248,7 @@ export default function RoleView({ goBack, roleId }: RoleViewProps) {
             img={IconDetailsImg}
             label="Detalhes"
             alt="Detalhes"
-            placeholder="Ex: Responsável pelo atendimento ao cliente" 
+            placeholder={!isEditing ? "" : "Ex: Responsável pelo atendimento ao cliente"}
             name="detail" 
             value={formData.detail} 
             onChange={handleTextAreaChange}
