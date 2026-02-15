@@ -1,0 +1,57 @@
+@media (max-width: 370px) {
+    #role-filter-section{
+        grid-template-columns: repeat(1, 95%);
+        gap: 0%;
+    }
+
+    #role-filter-section > * {
+        margin: 2px;
+    }
+}
+
+@media (min-width: 371px) and (max-width: 650px) {
+    #role-filter-section{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1%;
+    }
+
+    #role-filter-section > * {
+        margin: 2px;
+    }
+}
+
+@media (min-width: 651px) and (max-width: 768px) {
+    #role-filter-section{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1%;
+    }
+
+    #role-filter-section > * {
+        margin: 2px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #role-filter-section{
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1%;
+    }
+
+    #role-filter-section > * {
+        margin: 2px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    #role-filter-section{
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1%;
+    }
+
+    #role-filter-section > * {
+        margin: 2px;
+    }
+}
+
+@media (min-width: 1201px) {
+}

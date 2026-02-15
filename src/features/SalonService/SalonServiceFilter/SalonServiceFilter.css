@@ -1,0 +1,74 @@
+#role-filter-section {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    justify-content: center;
+    align-items: center;
+
+    width: 99%;
+    height: 100%;
+    padding: 10px;
+
+    background-color: #F9F9F9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#role-filter-section > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 95%;
+    height: 45px;
+}
+
+#filter-icon {
+    width: 60px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url('../../../assets/images/icons/filter.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 35%;
+    background-position: center;
+}
+
+.icon-label-container{
+    color: black;
+}
+
+#role-filter-section button:nth-of-type(3) {
+    background-color: #3B82F6; 
+}
+
+#role-filter-section button:nth-of-type(3):hover {
+    background-color: #2A72E5;
+}
+
+#role-filter-section button:nth-of-type(3):active {
+    background-color: #1962D4;
+}
+
+#role-filter-section button:nth-of-type(4) {
+    background-color: #dc143c; 
+}
+
+#role-filter-section button:nth-of-type(4):hover {
+    background-color: #c51236;
+}
+
+#role-filter-section button:nth-of-type(4):active {
+    background-color: #ae102f;
+}
+
+.label-order{
+    white-space: nowrap;   
+    overflow: hidden;          
+    text-overflow: ellipsis;   
+    
+    text-align: start;
+    margin: 0;
+}
