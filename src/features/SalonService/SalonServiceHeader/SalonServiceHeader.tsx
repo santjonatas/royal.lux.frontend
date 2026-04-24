@@ -3,7 +3,7 @@ import './SalonServiceHeader.css'
 export default function SalonServiceHeader() {
 
     return (
-        <section id="role-header">
+        <section id="salon-service-header">
             <div id='align-header-1'></div>
             <section id='columns-header'>
                 <p className='item-column'>Id</p>

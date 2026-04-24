@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ButtonDefault from '../../../components/buttons/ButtonDefault/ButtonDefault';
-import InputDefault from '../../../components/inputs/InputDefault/InputDefault';
 import InputRegisterProps from '../../../components/inputs/InputRegister/InputRegister';
 import './SalonServiceAdd.css';
 
@@ -13,7 +12,9 @@ import ArticleTitlePage from '../../../components/articles/ArticleTitlePage/Arti
 
 interface SalonServiceFormData {
   name: string;
-  detail: string;
+  description: string;
+  estimatedTime: string;
+  value: string;
 }
 
 interface SalonServiceAddProps {
@@ -23,12 +24,16 @@ interface SalonServiceAddProps {
 export default function SalonServiceAdd({ goBack }: SalonServiceAddProps) {
   const [formData, setFormData] = useState<SalonServiceFormData>({
     name: '',
-    detail: ''
+    description: '',
+    estimatedTime: '',
+    value: ''
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
   const API_URL = `http://${import.meta.env.VITE_API_URL}`;
+
+  const timeRegex = /^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -38,14 +43,62 @@ export default function SalonServiceAdd({ goBack }: SalonServiceAddProps) {
     }));
   };
 
+  const handleEstimatedTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value.replace(/\D/g, '');
+
+    if (value.length > 2) value = value.slice(0, 2) + ':' + value.slice(2);
+    if (value.length > 5) value = value.slice(0, 5) + ':' + value.slice(5);
+    if (value.length > 8) value = value.slice(0, 8);
+
+    setFormData(prev => ({
+      ...prev,
+      estimatedTime: value
+    }));
+  };
+
+  const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+
+    value = value.replace(/[^0-9,]/g, '');
+
+    const parts = value.split(',');
+
+    if (parts.length > 2) {
+      value = parts[0] + ',' + parts[1];
+    }
+
+    if (parts[1]) {
+      parts[1] = parts[1].slice(0, 2);
+      value = parts[0] + ',' + parts[1];
+    }
+
+    setFormData(prev => ({
+      ...prev,
+      value
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
+    
     try {
       const token = localStorage.getItem('authToken');
       if (!token) throw new Error('Token de autenticação não encontrado');
+
+      if (!timeRegex.test(formData.estimatedTime)) {
+        setError('"Tempo estimado" deve ter o formato hh:mm:ss');
+        setLoading(false);
+        return;
+      }
+
+      const normalizedValue = formData.value.replace(',', '.');
+      if (!/^[0-9]+(\.[0-9]{1,2})?$/.test(normalizedValue)) {
+        setError('"Preço" deve ser um número válido com até 2 casas decimais');
+        setLoading(false);
+        return;
+      }
 
       const response = await fetch(`${API_URL}/api/salonServices`, {
         method: 'POST',
@@ -55,7 +108,9 @@ export default function SalonServiceAdd({ goBack }: SalonServiceAddProps) {
         },
         body: JSON.stringify({
           name: formData.name,
-          detail: formData.detail
+          description: formData.description,
+          estimatedTime: formData.estimatedTime,
+          value: formData.value.replace(',', '.')
         })
       });
 
@@ -63,10 +118,10 @@ export default function SalonServiceAdd({ goBack }: SalonServiceAddProps) {
         const errorData = await response.json();
         throw new Error(errorData.message || `Erro ${response.status}: ${response.statusText}`);
       }
-
+      
       goBack();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erro ao criar função');
+      setError(err instanceof Error ? err.message : 'Erro ao criar serviço');
       console.error('Erro na requisição:', err);
     } finally {
       setLoading(false);
@@ -82,13 +137,13 @@ export default function SalonServiceAdd({ goBack }: SalonServiceAddProps) {
         description="Gerencie os serviços do sistema"
       >
       </ArticleTitlePage>
-      <form id="main-role-add-page" onSubmit={handleSubmit}>
-        <h3 id="role-add-action-page">Adicionar novo serviço</h3>
-        <div id="div-inputs-role-add">
+      <form id="main-salon-service-add-page" onSubmit={handleSubmit}>
+        <h3 id="salon-service-add-action-page">Adicionar novo serviço</h3>
+        <div id="div-inputs-salon-service-add">
           <InputRegisterProps
             img={IconNameImg}
             label="Nome"
-            alt="Função"
+            alt="Serviço"
             placeholder="Ex: Corte de cabelo" 
             name="name" 
             value={formData.name} 
@@ -104,8 +159,8 @@ export default function SalonServiceAdd({ goBack }: SalonServiceAddProps) {
             label="Descrição"
             alt="Descrição"
             placeholder="Ex: Realizar diferentes cortes de cabelo" 
-            name="detail" 
-            value={formData.detail} 
+            name="description" 
+            value={formData.description} 
             onChange={handleChange} 
             disabled={loading}
             >
@@ -118,8 +173,8 @@ export default function SalonServiceAdd({ goBack }: SalonServiceAddProps) {
             alt="Tempo estimado"
             placeholder="Ex: 00:45:00" 
             name="estimatedTime" 
-            value={formData.detail} 
-            onChange={handleChange} 
+            value={formData.estimatedTime} 
+            onChange={handleEstimatedTimeChange} 
             disabled={loading}
             >
           </InputRegisterProps>
@@ -131,8 +186,8 @@ export default function SalonServiceAdd({ goBack }: SalonServiceAddProps) {
             alt="Preço"
             placeholder="Ex: 35,00" 
             name="value" 
-            value={formData.detail} 
-            onChange={handleChange} 
+            value={formData.value} 
+            onChange={handleValueChange} 
             disabled={loading}
             >
           </InputRegisterProps>
@@ -142,7 +197,7 @@ export default function SalonServiceAdd({ goBack }: SalonServiceAddProps) {
           {error && <div className="error-message">{error}</div>}
         </div>
 
-        <div id="div-buttons-role-add">
+        <div id="div-buttons-salon-service-add">
           <ButtonDefault 
             innerText="Cancelar" 
             type="button"

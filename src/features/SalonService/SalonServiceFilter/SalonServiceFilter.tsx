@@ -38,7 +38,7 @@ export default function SalonServiceFilter({ onFilter, onAdd, onDelete }: SalonS
   };
 
   return (
-    <section id="role-filter-section">
+    <section id="salon-service-filter-section">
       <article id='filter-icon'></article>
       
       <InputDefault 

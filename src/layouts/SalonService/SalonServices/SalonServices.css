@@ -1,4 +1,4 @@
-#main-roles-page {
+#main-salon-services-page {
     display: flex;
     flex-direction: column;
 
@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-#roles-header {
+#salon-service-header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -28,7 +28,7 @@ h2 {
     min-width: 0;
 }
 
-#roles-filter {
+#salon-service-filter {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@ h2 {
     padding: 0.5rem;
 }
 
-#roles-content {
+#salon-services-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -53,7 +53,7 @@ h2 {
     gap: 0.5rem;
 }
 
-#roles-pagination {
+#salon-services-pagination {
     display: flex;
     justify-content: center;
     align-items: center;

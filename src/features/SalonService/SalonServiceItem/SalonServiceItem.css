@@ -1,4 +1,4 @@
-#role-item{
+#salon-service-item{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -13,7 +13,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#section-checkbox-role-item{
+#section-checkbox-salon-service-item{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@
     height: 35px;
 }
 
-#checkbox-role-item{
+#checkbox-salon-service-item{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,7 @@
     margin: 0;
 }
 
-#actions-item{
+#actions-salon-service-item{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -55,6 +55,10 @@
     width: 5%;
 }
 
+#actions-salon-service-item button {
+    width: 25px;
+    height: 25px;
+} 
 #actions-item button {
     width: 25px;
     height: 25px;

@@ -1,4 +1,4 @@
-#role-filter-section {
+#salon-service-filter-section {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     justify-content: center;
@@ -13,7 +13,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#role-filter-section > * {
+#salon-service-filter-section > * {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,27 +40,27 @@
     color: black;
 }
 
-#role-filter-section button:nth-of-type(3) {
+#salon-service-filter-section button:nth-of-type(3) {
     background-color: #3B82F6; 
 }
 
-#role-filter-section button:nth-of-type(3):hover {
+#salon-service-filter-section button:nth-of-type(3):hover {
     background-color: #2A72E5;
 }
 
-#role-filter-section button:nth-of-type(3):active {
+#salon-service-filter-section button:nth-of-type(3):active {
     background-color: #1962D4;
 }
 
-#role-filter-section button:nth-of-type(4) {
+#salon-service-filter-section button:nth-of-type(4) {
     background-color: #dc143c; 
 }
 
-#role-filter-section button:nth-of-type(4):hover {
+#salon-service-filter-section button:nth-of-type(4):hover {
     background-color: #c51236;
 }
 
-#role-filter-section button:nth-of-type(4):active {
+#salon-service-filter-section button:nth-of-type(4):active {
     background-color: #ae102f;
 }
 

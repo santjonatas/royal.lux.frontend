@@ -9,7 +9,7 @@ import SalonServiceFilter from '../../../features/SalonService/SalonServiceFilte
 import SalonServiceItem from '../../../features/SalonService/SalonServiceItem/SalonServiceItem';
 import SalonServiceHeader from '../../../features/SalonService/SalonServiceHeader/SalonServiceHeader';
 import SalonServiceAdd from '../SalonServiceAdd/SalonServiceAdd';
-// import RoleView from '../RoleView/RoleView';
+import SalonServiceView from '../SalonServiceView/SalonServiceView';
 
 interface SalonService {
   id: number;
@@ -27,7 +27,7 @@ export default function SalonServices() {
   const [error, setError] = useState<string | null>(null);
   const [showAddPage, setShowAddPage] = useState(false);
   const [showViewPage, setShowViewPage] = useState(false);
-  const [selectedRoleId, setSelectedRoleId] = useState<number | null>(null);
+  const [selectedServiceId, setSelectedServiceId] = useState<number | null>(null);
 
   const [pagination, setPagination] = useState({
     page: 0,
@@ -76,10 +76,10 @@ export default function SalonServices() {
 
       const data = await response.json();
 
-      const rolesData = Array.isArray(data) ? data : data.content || data.data || [];
-      const totalElements = data.totalElements || data.size || rolesData.length;
+      const servicesData = Array.isArray(data) ? data : data.content || data.data || [];
+      const totalElements = data.totalElements || data.size || servicesData.length;
 
-      setSalonServices(rolesData);
+      setSalonServices(servicesData);
       setPagination(prev => ({
         ...prev,
         totalElements: Number(totalElements),
@@ -121,14 +121,14 @@ export default function SalonServices() {
   const goToAddPage = () => setShowAddPage(true);
 
   const goToViewPage = (id: number) => {
-    setSelectedRoleId(id);
+    setSelectedServiceId(id);
     setShowViewPage(true);
   };
 
   const goBackToList = () => {
     setShowAddPage(false);
     setShowViewPage(false);
-    setSelectedRoleId(null);
+    setSelectedServiceId(null);
     fetchSalonServices();
   };
 
@@ -150,7 +150,7 @@ export default function SalonServices() {
 
     try {
       await Promise.all(selectedIds.map(id =>
-        fetch(`${API_URL}/api/roles?id=${id}`, {
+        fetch(`${API_URL}/api/salonServices?id=${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -167,21 +167,21 @@ export default function SalonServices() {
   };
 
   useEffect(() => {
-    if (!showAddPage) {
+    if (!showAddPage && !showViewPage) {
       fetchSalonServices();
     }
-  }, [pagination.page, pagination.size, filters, showAddPage]);
+  }, [pagination.page, pagination.size, filters, showAddPage, showViewPage]);
 
   if (showAddPage) {
     return <SalonServiceAdd goBack={goBackToList} />;
   }
 
-  // if (showViewPage && selectedRoleId !== null) {
-  //   return <RoleView goBack={goBackToList} roleId={selectedRoleId} />;
-  // }
+  if (showViewPage && selectedServiceId !== null) {
+    return <SalonServiceView goBack={goBackToList} salonServiceId={selectedServiceId} />;
+  }
 
   return (
-    <main id="main-roles-page">
+    <main id="main-salon-services-page">
       <ArticleTitlePage
         img={IconToolsImg}
         alt="Serviço"
@@ -190,7 +190,7 @@ export default function SalonServices() {
       >
       </ArticleTitlePage>
 
-      <section id="roles-filter">
+      <section id="salon-service-filter">
         <SalonServiceFilter
           onFilter={handleFilter}
           onAdd={goToAddPage}
@@ -199,13 +199,13 @@ export default function SalonServices() {
         <SalonServiceHeader/>
       </section>
 
-      <div id="roles-content">
+      <div id="salon-services-content">
         {loading ? (
           <div className="loading-message">Carregando...</div>
         ) : error ? (
           <div className="error-message">{error}</div>
         ) : salonServices.length === 0 ? (
-          <div className="no-data-message">Nenhuma função encontrada</div>
+          <div className="no-data-message">Nenhum serviço encontrado</div>
         ) : (
           salonServices.map(salonServices => (
             <SalonServiceItem
@@ -217,13 +217,13 @@ export default function SalonServices() {
               updatedAt={salonServices.updatedAt}
               checked={selectedIds.includes(salonServices.id)}
               onSelect={handleSelectItem}
-              onView={() => goToViewPage(salonServices.id)}
+              onView={goToViewPage}
             />
           ))
         )}
       </div>
 
-      <div id="roles-pagination">
+      <div id="salon-services-pagination">
         <Pagination
           currentPage={pagination.page}
           pageSize={pagination.size}

@@ -1,4 +1,4 @@
-#main-role-add-page {
+#main-salon-service-add-page {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -12,14 +12,14 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-#role-add-action-page{
+#salon-service-add-action-page{
     font-weight: 400;
     padding: 15px;
     color: #333;
     margin: 0;
 }
 
-#div-inputs-role-add {
+#div-inputs-salon-service-add {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
@@ -27,12 +27,12 @@
     width: 100%;
 }
 
-#div-inputs-role-add input {
+#div-inputs-salon-service-add input {
     width: 97%;
     margin: 1%;
 }
 
-#div-buttons-role-add {
+#div-buttons-salon-service-add {
     display: flex;
     flex-direction: row;
     gap: 2%;
@@ -43,7 +43,7 @@
     box-sizing: border-box;
 }
 
-#div-buttons-role-add button {
+#div-buttons-salon-service-add button {
     width: 17vh;
     margin-right: 1%;
 }
@@ -57,16 +57,16 @@
     margin: auto;
 }
 
-#main-role-add-page .error-message {
+#main-salon-service-add-page .error-message {
     width: 97%;
     margin: 1%;
 }
 
-#div-inputs-role-add div:nth-child(2) div #details-id{
+#div-inputs-salon-service-add div:nth-child(2) div #details-id{
     height: 150px;
     padding-bottom: 100px;
 }
 
-#div-inputs-role-add div .input-form::placeholder{
+#div-inputs-salon-service-add div .input-form::placeholder{
     color:#9CA3AF;
 }
