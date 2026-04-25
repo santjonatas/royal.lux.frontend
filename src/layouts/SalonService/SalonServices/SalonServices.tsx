@@ -212,6 +212,7 @@ export default function SalonServices() {
               key={salonServices.id}
               id={salonServices.id}
               name={salonServices.name}
+              estimatedTime={salonServices.estimatedTime}
               value={salonServices.value}
               createdAt={salonServices.createdAt}
               updatedAt={salonServices.updatedAt}

@@ -23,7 +23,7 @@ export default function Profile({
         document.title = "Profile | Royal Lux";
     }, []);
 
-    const [dataProfile, setDataProfile] = useState({
+    const [dataProfile, _setDataProfile] = useState({
         nome,
         username,
         cargo,

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ButtonDefault from '../../../components/buttons/ButtonDefault/ButtonDefault';
-import InputDefault from '../../../components/inputs/InputDefault/InputDefault';
 import InputRegisterProps from '../../../components/inputs/InputRegister/InputRegister';
 import './RoleAdd.css';
 

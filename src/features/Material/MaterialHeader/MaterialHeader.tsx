@@ -1,15 +1,14 @@
-import './SalonServiceHeader.css'
+import './MaterialHeader.css'
 
-export default function SalonServiceHeader() {
+export default function MaterialHeader() {
 
     return (
-        <section id="salon-service-header">
+        <section id="material-header">
             <div id='align-header-1'></div>
             <section id='columns-header'>
                 <p className='item-column'>Id</p>
                 <p className='item-column'>Nome</p>
-                <p className='item-column'>Tempo estimado</p>
-                <p className='item-column'>Preço</p>
+                <p className='item-column'>Detalhes</p>
                 <p className='item-column'>Criado em</p>
                 <p className='item-column'>Alterado em</p>
             </section>

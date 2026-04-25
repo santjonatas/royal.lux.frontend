@@ -1,35 +1,30 @@
 import ButtonView from '../../../components/buttons/EditButton/ButtonView';
-import './SalonServiceItem.css'
+import './MaterialItem.css'
 
-interface SalonServiceItemProps {
+interface MaterialItemProps {
   id: number;
   name: string;
-  estimatedTime: string;
-  value: number | string;
+  detail: string;
   createdAt: string;
   updatedAt: string | null;
   checked: boolean;
   onSelect: (id: number) => void;
-  onView: (id: number) => void;
+  onView: () => void;
 }
 
-export default function SalonServiceItem({
+export default function MaterialItem({
   id,
   name,
-  estimatedTime,
-  value,
+  detail,
   createdAt,
   updatedAt,
   checked,
   onSelect,
   onView
-}: SalonServiceItemProps) {
-  const formattedValue = Number(String(value).replace(',', '.'))
-    .toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
+}: MaterialItemProps) {
   return (
-    <section id="salon-service-item">
-      <div id='section-checkbox-salon-service-item'>
+    <section id="material-item">
+      <div id='section-checkbox-material-item'>
         <input
           type="checkbox"
           checked={checked}
@@ -39,16 +34,15 @@ export default function SalonServiceItem({
       <section id='items'>
         <p className='item-data'>{id}</p>
         <p className='item-data'>{name}</p>
-        <p className='item-data'>{estimatedTime}</p>
-        <p className='item-data'>{formattedValue}</p>
+        <p className='item-data'>{detail}</p>
         <p className='item-data'>{new Date(createdAt).toLocaleDateString()}</p>
         <p className='item-data'>
           {updatedAt ? new Date(updatedAt).toLocaleDateString() : 'N/A'}
         </p>
       </section>
-      <section id='actions-salon-service-item'>
+      <section id='actions-item'>
         <ButtonView
-          onClick={() => onView(id)}
+        onClick={onView}
         />
       </section>
     </section>

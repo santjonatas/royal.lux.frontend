@@ -6,6 +6,7 @@ import './Dashboard.css';
 import Roles from '../../layouts/Role/Roles/Roles';
 import RoleAdd from '../../layouts/Role/RoleAdd/RoleAdd';
 import SalonServices from '../../layouts/SalonService/SalonServices/SalonServices';
+import Materials from '../../layouts/Materials/Materials';
 
 export default function Dashboard() {
     useEffect(() => {
@@ -31,6 +32,8 @@ export default function Dashboard() {
                 return <RoleAdd goBack={() => setCurrentPage("roles")} />;
             case "services":
                 return <SalonServices/>
+            case "materials":
+                return <Materials/>
             default:
                 return <h1>Página não encontrada</h1>;
         }

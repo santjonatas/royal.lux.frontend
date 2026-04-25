@@ -20,7 +20,6 @@ export default function ButtonProfile({
   imagem = DefaultProfileImage 
 }: ButtonProfileProps) {
   const [userData, setUserData] = useState<UserData | null>(null);
-  const [loading, setLoading] = useState(true);
 
   const API_URL = `http://${import.meta.env.VITE_API_URL}`;
 
@@ -49,8 +48,6 @@ export default function ButtonProfile({
         console.log(data);
       } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);
-      } finally {
-        setLoading(false);
       }
     };
 

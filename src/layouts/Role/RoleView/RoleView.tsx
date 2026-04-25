@@ -274,10 +274,10 @@ export default function RoleView({ goBack, roleId }: RoleViewProps) {
             img={IconDateImg}
             label="Alterado em"
             alt="Alterado em"
-            placeholder="Ex: 23/11/2025 20:58" 
-            name="updatedAt" 
-            value={formData.updatedAt} 
-            onChange={handleChange} 
+            placeholder={formData.updatedAt ? "Ex: 23/11/2025 20:58" : "N/A"}
+            name="updatedAt"
+            value={formData.updatedAt}
+            onChange={handleChange}
             required
             disabled
             >

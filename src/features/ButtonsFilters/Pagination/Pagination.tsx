@@ -11,8 +11,8 @@ interface PaginationProps {
 
 export default function Pagination({
   currentPage,
-  pageSize,
-  totalItems,
+  pageSize: _pageSize,
+  totalItems: _totalItems,
   onPageChange,
 }: PaginationProps) {
   const [offset, setOffset] = useState(0); 

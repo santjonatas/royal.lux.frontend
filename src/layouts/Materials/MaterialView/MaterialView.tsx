@@ -1,49 +1,50 @@
 import { useState, useEffect } from 'react';
 import ButtonDefault from '../../../components/buttons/ButtonDefault/ButtonDefault';
 import InputRegisterProps from '../../../components/inputs/InputRegister/InputRegister';
-import TextAreaRegister from '../../../components/inputs/TextAreaRegister/TextAreaRegister';
-import './SalonServiceView.css';
+import './MaterialView.css';
 
-import ArticleTitlePage from '../../../components/articles/ArticleTitlePage/ArticleTitlePage';
-import IconNameImg from '../../../assets/images/icons/tools.png';
+import IconNameImg from '../../../assets/images/icons/suitcase.png';
 import IconDetailsImg from '../../../assets/images/icons/document.png';
-import IconToolsImg from '../../../assets/images/icons/tools-simple.png';
-import IconClockImg from '../../../assets/images/icons/clock.png';
-import IconMoneyImg from '../../../assets/images/icons/money.png';
+import IconSuitcaseImg from '../../../assets/images/icons/suitcase-simple.png';
+import ArticleTitlePage from '../../../components/articles/ArticleTitlePage/ArticleTitlePage';
 import IconIdImg from '../../../assets/images/icons/id.png';
 import IconDateImg from '../../../assets/images/icons/calendar.png';
+import TextAreaRegister from '../../../components/inputs/TextAreaRegister/TextAreaRegister';
 
-interface SalonServiceViewFormData {
+interface MaterialViewFormData {
   id: string;
   name: string;
   description: string;
-  estimatedTime: string;
   value: string;
+  availableQuantity: string;
+  reservedQuantity: string;
   createdAt: string;
   updatedAt: string;
 }
 
-interface SalonServiceViewProps {
+interface MaterialViewProps {
   goBack: () => void;
-  salonServiceId: number;
+  materialId: number;
 }
 
-export default function SalonServiceView({ goBack, salonServiceId }: SalonServiceViewProps) {
-  const [formData, setFormData] = useState<SalonServiceViewFormData>({
+export default function MaterialView({ goBack, materialId }: MaterialViewProps) {
+  const [formData, setFormData] = useState<MaterialViewFormData>({
     id: '',
     name: '',
     description: '',
-    estimatedTime: '',
     value: '',
+    availableQuantity: '',
+    reservedQuantity: '',
     createdAt: '',
     updatedAt: ''
   });
-  const [originalData, setOriginalData] = useState<SalonServiceViewFormData>({
+  const [originalData, setOriginalData] = useState<MaterialViewFormData>({
     id: '',
     name: '',
     description: '',
-    estimatedTime: '',
     value: '',
+    availableQuantity: '',
+    reservedQuantity: '',
     createdAt: '',
     updatedAt: ''
   });
@@ -58,11 +59,13 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
 
     try {
       const date = new Date(dateString);
+
       const day = String(date.getDate()).padStart(2, '0');
       const month = String(date.getMonth() + 1).padStart(2, '0');
       const year = date.getFullYear();
       const hours = String(date.getHours()).padStart(2, '0');
       const minutes = String(date.getMinutes()).padStart(2, '0');
+
       return `${day}/${month}/${year} ${hours}:${minutes}`;
     } catch {
       return dateString;
@@ -79,43 +82,8 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
     });
   };
 
-  const timeRegex = /^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/;
-
-  const handleEstimatedTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value.replace(/[^0-9]/g, '');
-
-    if (value.length > 2) value = value.slice(0, 2) + ':' + value.slice(2);
-    if (value.length > 5) value = value.slice(0, 5) + ':' + value.slice(5);
-    if (value.length > 8) value = value.slice(0, 8);
-
-    setFormData(prev => ({
-      ...prev,
-      estimatedTime: value
-    }));
-  };
-
-  const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value;
-    value = value.replace(/[^0-9,]/g, '');
-
-    const parts = value.split(',');
-    if (parts.length > 2) {
-      value = parts[0] + ',' + parts[1];
-    }
-
-    if (parts[1]) {
-      parts[1] = parts[1].slice(0, 2);
-      value = parts[0] + ',' + parts[1];
-    }
-
-    setFormData(prev => ({
-      ...prev,
-      value
-    }));
-  };
-
   useEffect(() => {
-    const fetchSalonService = async () => {
+    const fetchMaterialData = async () => {
       setLoading(true);
       setError(null);
 
@@ -123,7 +91,7 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
         const token = localStorage.getItem('authToken');
         if (!token) throw new Error('Token de autenticação não encontrado');
 
-        const response = await fetch(`${API_URL}/api/salonServices?id=${salonServiceId}`, {
+        const response = await fetch(`${API_URL}/api/materials?id=${materialId}`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -134,61 +102,81 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
 
         const data = await response.json();
 
-        let salonServiceData: any = null;
+        let materialData = null;
 
         if (Array.isArray(data) && data.length > 0) {
-          salonServiceData = data[0];
+          materialData = data[0];
         } else if (data.content && Array.isArray(data.content) && data.content.length > 0) {
-          salonServiceData = data.content[0];
+          materialData = data.content[0];
         } else if (data.data) {
-          salonServiceData = Array.isArray(data.data) ? data.data[0] : data.data;
+          materialData = Array.isArray(data.data) ? data.data[0] : data.data;
         } else if (!Array.isArray(data)) {
-          salonServiceData = data;
+          materialData = data;
         }
 
-        if (!salonServiceData) {
+        if (!materialData) {
           throw new Error('Nenhum dado retornado pela API');
         }
 
-        const loadedData: SalonServiceViewFormData = {
-          id: salonServiceData.id?.toString() ?? '',
-          name: salonServiceData.name ?? '',
-          description: salonServiceData.description ?? '',
-          estimatedTime: salonServiceData.estimatedTime ?? '',
-          value: formatValue(salonServiceData.value),
-          createdAt: formatDate(salonServiceData.createdAt) ?? '',
-          updatedAt: formatDate(salonServiceData.updatedAt) ?? ''
+        if (!materialData.id && materialData.id !== 0) {
+          throw new Error(`ID não encontrado. Dados: ${JSON.stringify(materialData)}`);
+        }
+
+        const loadedData = {
+          id: materialData.id.toString(),
+          name: materialData.name || '',
+          description: materialData.description ?? materialData.detail ?? '',
+          value: formatValue(materialData.value),
+          availableQuantity: materialData.availableQuantity !== undefined && materialData.availableQuantity !== null ? materialData.availableQuantity.toString() : '',
+          reservedQuantity: materialData.reservedQuantity !== undefined && materialData.reservedQuantity !== null ? materialData.reservedQuantity.toString() : '',
+          createdAt: formatDate(materialData.createdAt) || '',
+          updatedAt: formatDate(materialData.updatedAt) || ''
         };
 
         setFormData(loadedData);
         setOriginalData(loadedData);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Erro ao carregar serviço');
+        setError(err instanceof Error ? err.message : 'Erro ao carregar material');
         console.error('Erro completo na requisição:', err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchSalonService();
-  }, [salonServiceId, API_URL]);
+    fetchMaterialData();
+  }, [materialId, API_URL]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleEstimatedTimeTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleEstimatedTimeChange(e);
-  };
-
-  const handleValueTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleValueChange(e);
+  const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+    value = value.replace(/[^0-9,]/g, '');
+    const parts = value.split(',');
+    if (parts.length > 2) {
+      value = parts[0] + ',' + parts[1];
+    }
+    if (parts[1]) {
+      parts[1] = parts[1].slice(0, 2);
+      value = parts[0] + ',' + parts[1];
+    }
+    setFormData(prev => ({
+      ...prev,
+      value
+    }));
   };
 
   const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleEdit = () => {
@@ -209,21 +197,15 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
       const token = localStorage.getItem('authToken');
       if (!token) throw new Error('Token de autenticação não encontrado');
 
-      if (!timeRegex.test(formData.estimatedTime)) {
-        setError('"Tempo estimado" deve ter o formato hh:mm:ss');
-        setLoading(false);
-        return;
-      }
-
       const normalizedValue = formData.value.replace(',', '.');
       if (!/^[0-9]+(\.[0-9]{1,2})?$/.test(normalizedValue)) {
-        setError('"Preço" deve ser um número válido com até 2 casas decimais');
+        setError('"Valor" deve ser um número válido com até 2 casas decimais');
         setLoading(false);
         return;
       }
 
-      const response = await fetch(`${API_URL}/api/salonServices?id=${salonServiceId}`, {
-        method: 'PUT',
+      const response = await fetch(`${API_URL}/api/materials?id=${materialId}`, {
+        method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -231,7 +213,6 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
         body: JSON.stringify({
           name: formData.name,
           description: formData.description,
-          estimatedTime: formData.estimatedTime,
           value: Number(normalizedValue)
         })
       });
@@ -243,20 +224,21 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
 
       const data = await response.json();
 
-      if (data && (data.success || data.data?.success || response.ok)) {
-        const updatedData = {
+      if (data.data && data.data.success) {
+        const newData = {
           ...formData,
           value: formatValue(normalizedValue),
           updatedAt: formatDate(new Date().toISOString())
         };
-        setFormData(updatedData);
-        setOriginalData(updatedData);
+
+        setFormData(newData);
+        setOriginalData(newData);
         setIsEditing(false);
       } else {
-        throw new Error('Erro ao atualizar serviço');
+        throw new Error('Erro ao atualizar material');
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erro ao salvar serviço');
+      setError(err instanceof Error ? err.message : 'Erro ao salvar material');
       console.error('Erro na requisição:', err);
     } finally {
       setLoading(false);
@@ -270,18 +252,19 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
   return (
     <>
       <ArticleTitlePage
-        key={isEditing ? 'editing' : 'viewing'}
-        img={IconToolsImg}
-        alt="Serviço"
-        name="Serviços"
-        description="Gerencie os serviços do sistema"
-      />
-      <form id="main-salon-service-view-page" onSubmit={handleSubmit}>
-        <h3 id="salon-service-view-action-page">{isEditing ? 'Edite este serviço' : 'Detalhes do serviço'}</h3>
+      key={isEditing ? 'editing' : 'viewing'}
+      img={IconSuitcaseImg}
+      alt="Material"
+      name="Materiais"
+      description={"Gerencie os materiais do sistema"}
+    >
+    </ArticleTitlePage>
+      <form id="main-material-add-page" onSubmit={handleSubmit}>
+        <h3 id="material-add-action-page">{isEditing ? "Edite este material" : "Detalhes do material"}</h3>
 
         {loading && <div className="loading-message">Carregando...</div>}
 
-        <div id="div-inputs-salon-service-view">
+        <div id="div-inputs-material-view">
           <InputRegisterProps
             img={IconIdImg}
             label="Id"
@@ -292,56 +275,72 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
             onChange={handleChange}
             required
             disabled
-          />
+            >
+          </InputRegisterProps>
 
           <InputRegisterProps
             img={IconNameImg}
             label="Nome"
             alt="Nome"
-            placeholder={isEditing ? 'Ex: Corte de cabelo' : ''}
+            placeholder={!isEditing ? "" : "Ex: Tinta"}
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
             disabled={!isEditing || loading}
-          />
-
-          <InputRegisterProps
-            img={IconClockImg}
-            label="Tempo estimado"
-            alt="Tempo estimado"
-            placeholder={isEditing ? 'Ex: 00:45:00' : ''}
-            name="estimatedTime"
-            value={formData.estimatedTime}
-            onChange={handleEstimatedTimeTextChange}
-            required
-            disabled={!isEditing || loading}
-          />
-
-          <InputRegisterProps
-            img={IconMoneyImg}
-            label="Preço"
-            alt="Preço"
-            placeholder={isEditing ? 'Ex: 35,00' : ''}
-            name="value"
-            value={formData.value}
-            onChange={handleValueTextChange}
-            required
-            disabled={!isEditing || loading}
-          />
+            >
+          </InputRegisterProps>
 
           <TextAreaRegister
-            id="description-id"
+            id='details-id'
             img={IconDetailsImg}
-            label="Descrição"
-            alt="Descrição"
-            placeholder={isEditing ? 'Ex: Realizar diferentes cortes de cabelo' : ''}
+            label="Detalhes"
+            alt="Detalhes"
+            placeholder={!isEditing ? "" : "Ex: Tinta para pintura"}
             name="description"
             value={formData.description}
             onChange={handleTextAreaChange}
             required
             disabled={!isEditing || loading}
-          />
+            >
+          </TextAreaRegister>
+
+          <InputRegisterProps
+            img={IconDetailsImg}
+            label="Valor"
+            alt="Valor"
+            placeholder={!isEditing ? "" : "Ex: 10,00"}
+            name="value"
+            value={formData.value}
+            onChange={handleValueChange}
+            required
+            disabled={!isEditing || loading}
+            >
+          </InputRegisterProps>
+
+          <InputRegisterProps
+            img={IconDetailsImg}
+            label="Quantidade disponível"
+            alt="Quantidade disponível"
+            placeholder="N/A"
+            name="availableQuantity"
+            value={formData.availableQuantity}
+            onChange={handleChange}
+            disabled
+            >
+          </InputRegisterProps>
+
+          <InputRegisterProps
+            img={IconDetailsImg}
+            label="Quantidade reservada"
+            alt="Quantidade reservada"
+            placeholder="N/A"
+            name="reservedQuantity"
+            value={formData.reservedQuantity}
+            onChange={handleChange}
+            disabled
+            >
+          </InputRegisterProps>
 
           <InputRegisterProps
             img={IconDateImg}
@@ -353,7 +352,8 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
             onChange={handleChange}
             required
             disabled
-          />
+            >
+          </InputRegisterProps>
 
           <InputRegisterProps
             img={IconDateImg}
@@ -365,14 +365,15 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
             onChange={handleChange}
             required
             disabled
-          />
+            >
+          </InputRegisterProps>
         </div>
 
         <div id="div-error-message">
           {error && <div className="error-message">{error}</div>}
         </div>
 
-        <div id="div-buttons-salon-service-view">
+        <div id="div-buttons-material-add">
           {isEditing ? (
             <>
               <ButtonDefault
@@ -382,7 +383,7 @@ export default function SalonServiceView({ goBack, salonServiceId }: SalonServic
                 disabled={loading}
               />
               <ButtonDefault
-                innerText={loading ? 'Salvando...' : 'Salvar'}
+                innerText={loading ? "Salvando..." : "Salvar"}
                 type="button"
                 onClick={handleSave}
                 disabled={loading}

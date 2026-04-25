@@ -1,0 +1,72 @@
+#main-material-add-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    width: 98%;
+    box-sizing: border-box;
+
+    background-color: #F9F9F9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#material-add-action-page{
+    font-weight: 400;
+    padding: 15px;
+    color: #333;
+    margin: 0;
+}
+
+#div-inputs-material-add {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+
+    width: 100%;
+}
+
+#div-inputs-material-add input {
+    width: 97%;
+    margin: 1%;
+}
+
+#div-buttons-material-add {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#div-buttons-material-add button {
+    width: 17vh;
+    margin-right: 1%;
+}
+
+#div-error-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 97%;
+    margin: auto;
+}
+
+#main-material-add-page .error-message {
+    width: 97%;
+    margin: 1%;
+}
+
+#div-inputs-material-add div:nth-child(2) div #details-id{
+    height: 150px;
+    padding-bottom: 100px;
+}
+
+#div-inputs-material-add div .input-form::placeholder{
+    color:#9CA3AF;
+}

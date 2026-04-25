@@ -11,6 +11,8 @@ interface InputRegisterProps {
     required?: boolean;
     disabled?: boolean;
     readOnly?: boolean;
+    inputMode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+    pattern?: string;
 
     img: string;
     label: string;
@@ -28,6 +30,8 @@ export default function InputRegister({
   required = false,
   disabled = false,
   readOnly = false,
+  inputMode,
+  pattern,
   img = DefaultIconImage,
   alt = "Descrição da imagem",
   label = "Nome do campo",
@@ -41,17 +45,18 @@ export default function InputRegister({
       </label>
       <div id="div-input">
         <InputDefault
-        id={id}
-        value={value}
-        onChange={onChange}
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        required={required}
-        disabled={disabled}
-        readOnly={readOnly}
-        >
-      </InputDefault>
+          id={id}
+          value={value}
+          onChange={onChange}
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          required={required}
+          disabled={disabled}
+          readOnly={readOnly}
+          inputMode={inputMode}
+          pattern={pattern}
+        />
       </div>
     </div>
   );
