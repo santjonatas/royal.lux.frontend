@@ -1,11 +1,11 @@
 .input-form {
     width: 85%;
-    min-height: 55px;
+    min-height: 45px;
     border-radius: 8px;
     border: 1px solid #6A7179;
     font-size: 1rem;
     font-family: inherit;
-    padding: 15px;
+    padding: 7px;
     background-color: transparent;
     color: black;
     resize: vertical;
